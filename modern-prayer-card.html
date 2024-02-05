@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      .card-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+      }
+
+      .card {
+        width: 300px;
+        height: 400px;
+        margin: 20px;
+        border: 10px solid #f0f0f0;
+        border-radius: 20px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        font-family: Arial, sans-serif;
+        perspective: 1000px; /* Add this to create a 3D effect */
+      }
+
+      .card-inner {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        transition: transform 0.8s;
+        transform-style: preserve-3d;
+      }
+
+      .card-front,
+      .card-back {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        backface-visibility: hidden; /* Hide the back side when facing away */
+      }
+
+      .card-content {
+        text-align: center;
+        padding: 20px;
+        box-sizing: border-box; /* Include padding in width and height calculations */
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center; /* Center content horizontally */
+      }
+
+      .card-content img {
+        max-width: 100%;
+        max-height: 70%; /* Adjust this value as needed */
+        margin-bottom: 10px;
+        object-fit: contain; /* Maintain the image aspect ratio and fit within the specified dimensions */
+      }
+
+      .card-content h1,
+      .card-content p {
+        margin: 0; /* Remove default margins to keep content within the card */
+        word-wrap: break-word; /* Allow long words to break and wrap to the next line */
+      }
+
+      .card-front {
+        background: linear-gradient(
+          to right,
+          #ff9a9e 0%,
+          #fad0c4 99%,
+          #fad0c4 100%
+        );
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .card-front h1 {
+        color: white;
+        font-size: 24px; /* Adjust font size as needed */
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+      }
+
+      .card-front p {
+        color: white;
+        font-size: 14px; /* Adjust font size as needed */
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
+        margin: 10px 0; /* Adjust margin as needed */
+      }
+
+      .card-back {
+        background: linear-gradient(
+          to right,
+          #ff9a9e 0%,
+          #fad0c4 99%,
+          #fad0c4 100%
+        );
+        transform: rotateY(180deg);
+      }
+
+      .card-back h1 {
+        color: white;
+        font-size: 36px;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        margin-top: 100px;
+      }
+
+      .card-back p {
+        color: white;
+        font-size: 12px;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
+        margin: 20px;
+      }
+
+      .flip-icon {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        background: white;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .flip-icon i {
+        font-size: 18px;
+        color: #ff9a9e;
+      }
+
+      /* Add this flipped class */
+      .flipped .card-inner {
+        transform: rotateY(180deg);
+      }
+
+      /* Media Query for mobile */
+      @media only screen and (max-width: 767px) {
+        .card {
+          width: 100%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="card-container" class="card-container"></div>
+
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script>
+      // JSON data for the cards
+      const jsonData = [
+        {
+          image: "/Fr.Moreau.jpg",
+          title: "God is Love",
+          text: "Love the Lord your God with all your heart and with all your soul and with all your mind and with all your strength. Mark 12:30",
+          backTitle: "Prayer",
+          backText:
+            "God is light; in him there is no darkness at all. If we claim to have fellowship with him and yet walk in the darkness, we lie and do not live out the truth. 1 John 1:5-6",
+        },
+        {
+          image: "/Fr.Dujarie.jpg",
+          title: "God is Love",
+          text: "Love the Lord your God with all your heart and with all your soul and with all your mind and with all your strength. Mark 12:30",
+          backTitle: "Prayer",
+          backText:
+            "God is light; in him there is no darkness at all. If we claim to have fellowship with him and yet walk in the darkness, we lie and do not live out the truth. 1 John 1:5-6",
+        },
+        {
+          image: "/Br.Andre.png",
+          title: "God is Love",
+          text: "Love the Lord your God with all your heart and with all your soul and with all your mind and with all your strength. Mark 12:30",
+          backTitle: "Prayer",
+          backText:
+            "O Saint André Bessette,  you who answered the door and welcomed the suffering souls with compassion and prayer, intercede for me today and bring my needs to St. Joseph. You who witnessed many miracles through the oil of St. Joseph, obtain for me the grace of healing in body, mind, and spirit. Help me to trust in God's will and to accept his loving plan.",
+        },
+        {
+          image: "/Br.Flavian.jpg",
+          title: "God is Love",
+          text: "Love the Lord your God with all your heart and with all your soul and with all your mind and with all your strength. Mark 12:30",
+          backTitle: "Prayer",
+          backText:
+            "God is light; in him there is no darkness at all. If we claim to have fellowship with him and yet walk in the darkness, we lie and do not live out the truth. 1 John 1:5-6",
+        },
+        {
+          image: "/Fr.Moreau.jpg",
+          title: "God is Love",
+          text: "Love the Lord your God with all your heart and with all your soul and with all your mind and with all your strength. Mark 12:30",
+          backTitle: "Prayer",
+          backText:
+            "God is light; in him there is no darkness at all. If we claim to have fellowship with him and yet walk in the darkness, we lie and do not live out the truth. 1 John 1:5-6",
+        },
+        {
+          image: "/Fr.Dujarie.jpg",
+          title: "God is Love",
+          text: "Love the Lord your God with all your heart and with all your soul and with all your mind and with all your strength. Mark 12:30",
+          backTitle: "Prayer",
+          backText:
+            "God is light; in him there is no darkness at all. If we claim to have fellowship with him and yet walk in the darkness, we lie and do not live out the truth. 1 John 1:5-6",
+        },
+        {
+          image: "/Br.Andre.png",
+          title: "God is Love",
+          text: "Love the Lord your God with all your heart and with all your soul and with all your mind and with all your strength. Mark 12:30",
+          backTitle: "Prayer",
+          backText:
+            "God is light; in him there is no darkness at all. If we claim to have fellowship with him and yet walk in the darkness, we lie and do not live out the truth. 1 John 1:5-6",
+        },
+        {
+          image: "/Br.Flavian.jpg",
+          title: "God is Love",
+          text: "Love the Lord your God with all your heart and with all your soul and with all your mind and with all your strength. Mark 12:30",
+          backTitle: "Prayer",
+          backText:
+            "God is light; in him there is no darkness at all. If we claim to have fellowship with him and yet walk in the darkness, we lie and do not live out the truth. 1 John 1:5-6",
+        },
+        // Add more objects for additional cards
+      ];
+
+      // Function to create a card element
+      function createCard(data) {
+        const card = $('<div class="card"></div>');
+        const cardInner = $('<div class="card-inner"></div>');
+        const cardFront = $('<div class="card-front"></div>');
+        const cardContent = $('<div class="card-content"></div>');
+        const cardBack = $('<div class="card-back"></div>');
+
+        const img = $("<img>")
+          .attr("src", data.image)
+          .attr("alt", "Card Image");
+        const title = $("<h1>").text(data.title);
+        const text = $("<p>").text(data.text);
+        const backTitle = $("<h1>").text(data.backTitle);
+        const backText = $("<p>").text(data.backText);
+
+        cardContent.append(img, title, text);
+        cardFront.append(cardContent);
+        cardBack.append(backTitle, backText);
+        cardInner.append(cardFront, cardBack);
+        card.append(cardInner);
+
+        // Add the flip icon to the card
+        const flipIcon = $(
+          '<div class="flip-icon"><i class="fas fa-arrow-right"></i></div>'
+        );
+        card.append(flipIcon);
+
+        // Add the card to the card container
+        $("#card-container").append(card);
+      }
+
+      // Loop through the JSON data and create cards
+      jsonData.forEach(createCard);
+
+      // Toggle flip on click
+      $(document).on("click", ".card", function () {
+        $(this).toggleClass("flipped");
+        const isFlipped = $(this).hasClass("flipped");
+        const flipIcon = $(this).find(".flip-icon i");
+
+        if (isFlipped) {
+          flipIcon
+            .removeClass("fas fa-arrow-right")
+            .addClass("fas fa-arrow-left");
+        } else {
+          flipIcon
+            .removeClass("fas fa-arrow-left")
+            .addClass("fas fa-arrow-right");
+        }
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+
+    <!--=============== REMIXICONS ===============-->
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+
+    <!--=============== CSS ===============-->
+    <link rel="stylesheet" href="assets/css/styles.css" />
+    <link rel="stylesheet" href="assets/css/slider.css" />
+    <link rel="stylesheet" href="assets/css/about.css" />
+    <link rel="stylesheet" href="assets/css/holy-ones.css" />
+    <link rel="stylesheet" href="assets/css/ministry.css" />
+    <link rel="stylesheet" href="assets/css/news.css" />
+    <link rel="stylesheet" href="assets/css/footer.css" />
+    <link rel="stylesheet" href="assets/css/quote.css" />
+
+    <script src="assets/js/app.js"></script>
+
+    <script
+      src="https://kit.fontawesome.com/d492308d15.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <title>St. Joseph Province</title>
+  </head>
+  <body class="scroll-reveal-container">
+    <!--=============== HEADER ===============-->
+    <header class="header">
+      <nav class="nav container">
+        <div class="nav__data">
+          <a href="#" class="nav__logo" id="logoLink">
+            <img
+              src="/logo_1_sjp.png"
+              alt="St. Joseph Province Logo"
+              style="width: 300px; height: 50px"
+            />
+          </a>
+
+          <div class="nav__toggle" id="nav-toggle">
+            <i class="ri-menu-line nav__toggle-menu"></i>
+            <i class="ri-close-line nav__toggle-close"></i>
+          </div>
+        </div>
+
+        <!--=============== NAV MENU ===============-->
+        <div class="nav__menu" id="nav-menu">
+          <ul class="nav__list">
+            <li>
+              <a href="#" class="nav__link">Home</a>
+            </li>
+
+            <!--=============== DROPDOWN 1 ===============-->
+            <li class="dropdown__item">
+              <div class="nav__link dropdown__button">
+                About <i class="ri-arrow-down-s-line dropdown__arrow"></i>
+              </div>
+
+              <div class="dropdown__container">
+                <div class="dropdown__content">
+                  <div class="dropdown__group">
+                    <div class="dropdown__icon">
+                      <i class="fa-solid fa-cross"></i>
+                    </div>
+
+                    <span class="dropdown__title">About Province</span>
+
+                    <ul class="dropdown__list">
+                      <li>
+                        <!-- <a href="#" class="dropdown__link">Our History</a> -->
+                        <a href="our-history.html" class="dropdown__link">Our History</a>
+                      </li>
+                      <li>
+                        <a href="our-history.html" class="dropdown__link">Who are we?</a>
+                      </li>
+                      <li>
+                        <a href="our-history.html" class="dropdown__link"
+                          >Our Mission, vision, goal</a
+                        >
+                      </li>
+                    </ul>
+                  </div>
+
+                  <div class="dropdown__group">
+                    <div class="dropdown__icon">
+                      <i class="fa-solid fa-book-bible"></i>
+                    </div>
+
+                    <span class="dropdown__title">Our Holy Ones</span>
+
+                    <ul class="dropdown__list">
+                      <li>
+                        <a href="modern-prayer-card.html" class="dropdown__link">Our Founder</a>
+                      </li>
+                      <li>
+                        <a href="modern-prayer-card.html" class="dropdown__link">Our Saint</a>
+                      </li>
+                      <li>
+                        <a href="modern-prayer-card.html" class="dropdown__link">All our Holy Ones</a>
+                      </li>
+                    </ul>
+                  </div>
+
+                  <div class="dropdown__group">
+                    <div class="dropdown__icon">
+                      <i class="fa-solid fa-people-roof"></i>
+                    </div>
+
+                    <span class="dropdown__title">Province Administration</span>
+
+                    <ul class="dropdown__list">
+                      <li>
+                        <a href="#" class="dropdown__link"
+                          >Administration Team</a
+                        >
+                      </li>
+                    </ul>
+                  </div>
+
+                  <div class="dropdown__group">
+                    <div class="dropdown__icon">
+                      <i class="fa-solid fa-users-line"></i>
+                    </div>
+
+                    <span class="dropdown__title">General Administration</span>
+
+                    <ul class="dropdown__list">
+                      <li>
+                        <a href="#" class="dropdown__link"
+                          >Administration Team</a
+                        >
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </li>
+
+            <!--=============== DROPDOWN 2 ===============-->
+            <li class="dropdown__item">
+              <div class="nav__link dropdown__button">
+                Ministries <i class="ri-arrow-down-s-line dropdown__arrow"></i>
+              </div>
+
+              <div class="dropdown__container">
+                <div class="dropdown__content">
+                  <div class="dropdown__group">
+                    <div class="dropdown__icon">
+                      <i class="fa-solid fa-graduation-cap"></i>
+                    </div>
+
+                    <span class="dropdown__title">Education</span>
+
+                    <ul class="dropdown__list">
+                      <li>
+                        <a href="#" class="dropdown__link">General Education</a>
+                      </li>
+                      <li>
+                        <a href="#" class="dropdown__link">Technical Schools</a>
+                      </li>
+                    </ul>
+                  </div>
+
+                  <div class="dropdown__group">
+                    <div class="dropdown__icon">
+                      <i class="fa-solid fa-house-medical"></i>
+                    </div>
+
+                    <span class="dropdown__title">Rehabilitation Center</span>
+
+                    <ul class="dropdown__list">
+                      <li>
+                        <a href="#" class="dropdown__link">APON</a>
+                      </li>
+                      <li>
+                        <a href="#" class="dropdown__link">BARACA</a>
+                      </li>
+                    </ul>
+                  </div>
+
+                  <div class="dropdown__group">
+                    <div class="dropdown__icon">
+                      <i class="fa-solid fa-ellipsis"></i>
+                    </div>
+
+                    <span class="dropdown__title">Others</span>
+
+                    <ul class="dropdown__list">
+                      <li>
+                        <a href="#" class="dropdown__link">Hostels</a>
+                      </li>
+                      <li>
+                        <a href="#" class="dropdown__link">Literacy Schools</a>
+                      </li>
+                      <li>
+                        <a href="#" class="dropdown__link">Youth Formation</a>
+                      </li>
+                    </ul>
+                  </div>
+
+                  <div class="dropdown__group">
+                    <div class="dropdown__icon">
+                      <i class="fa-solid fa-ellipsis"></i>
+                    </div>
+
+                    <span class="dropdown__title">Others</span>
+
+                    <ul class="dropdown__list">
+                      <li>
+                        <a href="#" class="dropdown__link"
+                          >Ashram & Retreat Center</a
+                        >
+                      </li>
+                      <li>
+                        <a href="#" class="dropdown__link">Publications</a>
+                      </li>
+                      <li>
+                        <a href="#" class="dropdown__link"
+                          >Guidance & Counselling</a
+                        >
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </li>
+
+            <li>
+              <a href="team.html" class="nav__link">Members</a>
+            </li>
+            <li>
+              <a href="obt.htm" class="nav__link">Obituary</a>
+            </li>
+
+            <!--=============== DROPDOWN 3 ===============-->
+            <li class="dropdown__item">
+              <div class="nav__link dropdown__button">
+                Resources <i class="ri-arrow-down-s-line dropdown__arrow"></i>
+              </div>
+
+              <div class="dropdown__container">
+                <div class="dropdown__content">
+                  <div class="dropdown__group">
+                    <div class="dropdown__icon">
+                      <i class="fa-solid fa-hard-drive"></i>
+                    </div>
+
+                    <span class="dropdown__title">Resources</span>
+
+                    <ul class="dropdown__list">
+                      <li>
+                        <a href="#" class="dropdown__link">Newsletter</a>
+                      </li>
+                      <li>
+                        <a href="#" class="dropdown__link">Constitution</a>
+                      </li>
+                      <li>
+                        <a href="#" class="dropdown__link">Circular Letter</a>
+                      </li>
+                    </ul>
+                  </div>
+
+                  <div class="dropdown__group">
+                    <div class="dropdown__icon">
+                      <i class="fa-solid fa-images"></i>
+                    </div>
+
+                    <span class="dropdown__title">Photo Galary</span>
+
+                    <ul class="dropdown__list">
+                      <li>
+                        <a href="#" class="dropdown__link">2023</a>
+                      </li>
+                      <li>
+                        <a href="#" class="dropdown__link">2022</a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li>
+              <a href="contact.html" class="nav__link">Contact Us</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+
+    <!---------Slider--------->
+
+    <main>
+      <!-- Title Box -->
+      <div class="title">
+        <h1>Welcome TO ST. JOSEPH PROVINCE, BANGLADESH</h1>
+        <p></p>
+      </div>
+
+      <!-- Slider -->
+      <div class="wrapper-slider">
+        <div class="prev-btn"><i class="uil uil-angle-left-b"></i></div>
+        <div class="slides-container">
+          <div class="slide-image">
+            <img
+              src="/activity-photos/3.jpg"
+              alt=""
+            />
+          </div>
+          <div class="slide-image">
+            <img
+              src="/activity-photos/4.jpg"
+              alt=""
+            />
+          </div>
+          <div class="slide-image">
+            <img
+              src="/activity-photos/8.jpg"
+              alt=""
+            />
+          </div>
+          <div class="slide-image">
+            <img
+              src="/activity-photos/6.jpg"
+              alt=""
+            />
+          </div>
+          <div class="slide-image">
+            <img src="/photo_MG_7357.jpg" alt="" />
+          </div>
+          <div class="slide-image">
+            <img src="/photo2_MG_7487.jpg" alt="" />
+          </div>
+          <div class="slide-image">
+            <img src="/first-profn-2023.jpg" alt="" />
+          </div>
+        </div>
+        <div class="next-btn"><i class="uil uil-angle-right-b"></i></div>
+        <div class="navigation-dots"></div>
+      </div>
+    </main>
+
+    <!--=============== ABOUT US ===============-->
+    <section class="about-section scroll-reveal">
+      <div class="container">
+        <div id="about-title" class="sec-title">
+          <h2>About Us</h2>
+        </div>
+        <div class="row">
+          <!-- Image Column -->
+          <div class="image-column col-lg-6 col-md-12 col-sm-12 order-1">
+            <div class="inner-column">
+              <img
+                src="/first-profn-2023.jpg"
+                alt="About Image"
+                class="about-image image scroll-reveal"
+              />
+            </div>
+          </div>
+
+          <!-- Content Column -->
+          <div class="content-column col-lg-6 col-md-12 col-sm-12 order-2">
+            <div class="inner-column">
+              <div class="text">
+                In 1851, Propaganda Fide, the Vatican congregation that oversees
+                the Church’s missionary work, asked Blessed Basile Moreau if
+                Holy Cross would assume responsibility for the Church’s mission
+                in East Bengal. Whereas other congregations had refused because
+                of the region’s poverty and difficult climate, Moreau accepted.
+                After the first group to set sail was forced to turn back in
+                December 1852 due to a storm, a second group of priests,
+                brothers, and sisters arrived to Calcutta on May 20, 1853. They
+                made their way to Dhaka and Noakhali by June.
+              </div>
+              <div class="btn-box">
+                <a href="side-view.html" class="theme-btn btn-style-one">Read More</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!--=============== Holy Ones ===============-->
+
+    <section id="holy-ones" class="holy-ones-section scroll-reveal">
+      <div class="holy-ones-container card scroll-reveal">
+        <h2 id="holy-ones-title" class="holy-ones-section-title">
+          Our Holy Ones
+        </h2>
+        <div class="holy-ones-container">
+          <div class="holy-ones-card blessed-moreau">
+            <img
+              src="/Fr.Moreau.jpg"
+              alt="Blessed Basile Moreau"
+              class="holy-ones-img image scroll-reveal"
+            />
+            <div class="holy-ones-details">
+              <h3 class="holy-ones-name">Blessed Basile Moreau</h3>
+              <p class="holy-ones-subtitle">
+                Founder of the Congregation of Holy Cross
+              </p>
+            </div>
+            <button class="read-more-btn">Read More</button>
+          </div>
+
+          <!-- Add more Holy Ones cards as needed -->
+          <div class="holy-ones-card rev-dujarie">
+            <img
+              src="/Fr.Dujarie.jpg"
+              alt="Rev. Jacques Dujarié"
+              class="holy-ones-img image scroll-reveal"
+            />
+            <div class="holy-ones-details">
+              <h3 class="holy-ones-name">Rev. Jacques Dujarié</h3>
+              <p class="holy-ones-subtitle">
+                Founder of the then Brothers of St. Joseph (Now Holy Cross
+                Brothers)
+              </p>
+            </div>
+            <button class="read-more-btn">Read More</button>
+          </div>
+
+          <!-- Add more Holy Ones cards as needed -->
+          <div class="holy-ones-card st-andre">
+            <img
+              src="/Br.Andre.png"
+              alt="St. André Bessette"
+              class="holy-ones-img image scroll-reveal"
+            />
+            <div class="holy-ones-details">
+              <h3 class="holy-ones-name">St. André Bessette</h3>
+              <p class="holy-ones-subtitle">
+                Miracle Worker & Healer And 1st Saint from Holy Cross
+              </p>
+            </div>
+            <button class="read-more-btn">Read More</button>
+          </div>
+
+          <!-- Add more Holy Ones cards as needed -->
+          <div class="holy-ones-card sg-flavian">
+            <img
+              src="/Br.Flavian.jpg"
+              alt="S.G Flavian Laplante"
+              class="holy-ones-img image scroll-reveal"
+            />
+            <div class="holy-ones-details">
+              <h3 class="holy-ones-name">S.G Flavian Laplante</h3>
+              <p class="holy-ones-subtitle">
+                Friend of fishermen & Founder of Mariam Ashram
+              </p>
+            </div>
+            <button class="read-more-btn">Read More</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!--=============== OUR MINISTRIES ===============-->
+
+    <section id="ministry" class="ministry-section scroll-reveal">
+      <h1 id="ministry-title" class="ministry-title">Our Ministries</h1>
+      <div class="ministry-container scroll-reveal">
+        <div class="mininstry-item">
+          <i class="material-icons">school</i>
+          <h5 class="card-title">School & College</h5>
+        </div>
+
+        <div class="mininstry-item">
+          <i class="material-icons">construction</i>
+          <h5 class="card-title">Technical School</h5>
+        </div>
+
+        <div class="mininstry-item">
+          <span class="material-icons">local_hospital</span>
+          <h5 class="card-title">Rehabilitation Center</h5>
+        </div>
+
+        <div class="mininstry-item">
+          <span class="material-icons">group</span>
+          <h5 class="card-title">Youth Formation</h5>
+        </div>
+
+        <div class="mininstry-item">
+          <span class="material-icons">self_improvement</span>
+          <h5 class="card-title">Ashram and Retreat Center</h5>
+        </div>
+
+        <div class="mininstry-item">
+          <span class="material-icons white-icon">hotel</span>
+          <h5 class="card-title">Hostel</h5>
+        </div>
+
+        <div class="mininstry-item">
+          <span class="material-symbols-outlined">local_library</span>
+          <h5 class="card-title">Literacy School</h5>
+        </div>
+
+        <div class="mininstry-item">
+          <span class="material-icons">emoji_people</span>
+          <h5 class="card-title">Teaching in Major Seminary</h5>
+        </div>
+
+        <div class="mininstry-item">
+          <span class="material-symbols-outlined">menu_book</span>
+          <h5 class="card-title">Publications</h5>
+        </div>
+
+        <div class="mininstry-item">
+          <span class="material-symbols-outlined"> partner_exchange </span>
+          <h5 class="card-title">Guidance & Councelling</h5>
+        </div>
+      </div>
+    </section>
+
+    <!--=============== NEWS ===============-->
+
+    <section class="news-container-section scroll-reveal">
+      <!-- <h1 id="news-title" class="news-title-class">Latest News</h1> -->
+      <h1 id="news-title" class="news-title-class">
+        Latest News
+        <a href="#" class="view-all">
+          View All <i class="fas fa-arrow-right"></i>
+        </a>
+      </h1>
+      <div class="news-main">
+        <div class="normal">
+          <p class="news-title">Latest News</p>
+          <div class="module">
+            <div class="thumbnail">
+              <img src="/dibosh-grp.jpg" class="image scroll-reveal" />
+              <div class="date">
+                <div>27</div>
+                <div>Aug</div>
+              </div>
+            </div>
+            <div class="content">
+              <div class="category">Photos</div>
+              <h1 class="news-title">Final Profession of 8 Brothers</h1>
+
+              <div class="description">
+                New York, the largest city in the U.S., is an architectural
+                marvel with plenty of historic monuments, magnificent buildings,
+                and countless dazzling skyscrapers.
+              </div>
+              <div class="meta">
+                <span class="timestamp">
+                  <i class="fa fa-clock-o"></i> 6 mins ago
+                </span>
+                <span class="seen">
+                  <i class="fa fa-eye"></i>
+                  <a href="#"> 39 seen</a>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="normal">
+          <p class="news-title">Latest News</p>
+          <div class="module">
+            <div class="thumbnail">
+              <img src="/fest.jpg" />
+              <div class="date">
+                <div>7</div>
+                <div>Jan</div>
+              </div>
+            </div>
+            <div class="content">
+              <div class="category">Photos</div>
+              <h1 class="news-title">The Feast of St. André Bessette 2024</h1>
+
+              <div class="description">
+                New York, the largest city in the U.S., is an architectural
+                marvel with plenty of historic monuments, magnificent buildings,
+                and countless dazzling skyscrapers.
+              </div>
+              <div class="meta">
+                <span class="timestamp">
+                  <i class="fa fa-clock-o"></i> 6 mins ago
+                </span>
+                <span class="seen">
+                  <i class="fa fa-eye"></i>
+                  <a href="#"> 39 seen</a>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="normal">
+          <p class="news-title">Latest News</p>
+          <div class="module">
+            <div class="thumbnail">
+              <img src="/first-pron.jpg" />
+              <div class="date">
+                <div>29</div>
+                <div>Dec</div>
+              </div>
+            </div>
+            <div class="content">
+              <div class="category">Photos</div>
+              <h1 class="news-title">First Profession of Six Brothers</h1>
+
+              <div class="description">
+                New York, the largest city in the U.S., is an architectural
+                marvel with plenty of historic monuments, magnificent buildings,
+                and countless dazzling skyscrapers.
+              </div>
+              <div class="meta">
+                <span class="timestamp">
+                  <i class="fa fa-clock-o"></i> 6 mins ago
+                </span>
+                <span class="seen">
+                  <i class="fa fa-eye"></i>
+                  <a href="#"> 39 seen</a>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!--=============== FOOTER ===============-->
+    <footer class="footer">
+      <div class="container-footer">
+        <div class="row">
+          <div class="footer-col">
+            <h4>St. Joseph Province</h4>
+            <ul>
+              <li><a href="#">about us</a></li>
+              <li><a href="#">our ministries</a></li>
+              <li><a href="#">our mission</a></li>
+              <li><a href="#">our history</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Contact Us</h4>
+            <ul>
+              <li><a href="#">FAQ</a></li>
+              <li><a href="#">Write Us</a></li>
+              <li><a href="#">Prayer Request</a></li>
+              <li><a href="#">Donate</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Activities</h4>
+            <ul>
+              <li><a href="#">News</a></li>
+              <li><a href="#">New Mission</a></li>
+              <li><a href="#">Where we Serve</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Our Address</h4>
+            <div class="social-links">
+              <ul>
+              <li><a href="#">St. Joseph Province</a></li>
+              <li><a href="#">97 Asad Avenue, Mohammadpur</a></li>
+              <li><a href="#">Dhaka-1207, Bangladesh</a></li>
+            </ul>
+              
+              <!-- <a href="#"><i class="fa-brands fa-facebook"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+              <a href="#"><i class="fab fa-linkedin-in"></i></a> -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const scrollReveal = ScrollReveal();
+
+        // Configure the animation for div cards
+        scrollReveal.reveal(".card", {
+          delay: 200,
+          distance: "20px",
+          duration: 800,
+          easing: "cubic-bezier(0.5, 0, 0, 1)",
+          origin: "left", // Set origin to left
+          reset: true,
+          mobile: true,
+        });
+
+        // Configure the animation for images
+        scrollReveal.reveal(".image", {
+          delay: 200,
+          distance: "20px",
+          duration: 800,
+          easing: "cubic-bezier(0.5, 0, 0, 1)",
+          origin: "left", // Set origin to left
+          reset: true,
+          mobile: true,
+        });
+
+        // Configure the animation for text
+        scrollReveal.reveal(".text", {
+          delay: 200,
+          distance: "20px",
+          duration: 800,
+          easing: "cubic-bezier(0.5, 0, 0, 1)",
+          origin: "left", // Set origin to left
+          reset: true,
+          mobile: true,
+        });
+      });
+    </script>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const scrollReveal = ScrollReveal();
+
+        // Configure the animation for ministry items
+        scrollReveal.reveal(".animated-card", {
+          delay: 200,
+          distance: "20px",
+          duration: 800,
+          easing: "cubic-bezier(0.5, 0, 0, 1)",
+          origin: "left",
+          reset: true,
+          mobile: true,
+        });
+      });
+    </script>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const scrollReveal = ScrollReveal();
+
+        // Configure the animation for ministry items
+        scrollReveal.reveal(".mininstry-item", {
+          delay: 300,
+          distance: "80px",
+          duration: 3000,
+          easing: "cubic-bezier(0.5, 2, 0, 1)",
+          origin: "left",
+          reset: true,
+          mobile: true,
+        });
+      });
+    </script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const scrollReveal = ScrollReveal();
+
+        // Configure the animation for ministry section title
+        scrollReveal.reveal("#ministry-title", {
+          delay: 200,
+          distance: "100px",
+          duration: 800,
+          easing: "cubic-bezier(0.5, 0, 0, 1)",
+          origin: "left",
+          reset: true,
+          mobile: true,
+        });
+
+        // Configure the animation for about section title
+        scrollReveal.reveal("#about-title", {
+          delay: 200,
+          distance: "100px",
+          duration: 800,
+          easing: "cubic-bezier(0.5, 0, 0, 1)",
+          origin: "left",
+          reset: true,
+          mobile: true,
+        });
+
+        // Configure the animation for News section title
+        scrollReveal.reveal("#news-title", {
+          delay: 200,
+          distance: "100px",
+          duration: 800,
+          easing: "cubic-bezier(0.5, 0, 0, 1)",
+          origin: "left",
+          reset: true,
+          mobile: true,
+        });
+      });
+    </script>
+
+    <!--=============== MAIN JS ===============-->
+    <script src="assets/js/app.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/slider.js"></script>
+    <script src="https://unpkg.com/scrollreveal"></script>
+  </body>
+</html>

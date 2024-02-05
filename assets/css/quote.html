@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Your Website</title>
+    <style>
+      body {
+        font-family: "Arial", sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+
+      .quotation-section {
+        display: flex;
+        flex-wrap: wrap; /* Allow cards to wrap to the next line */
+        justify-content: space-around;
+        align-items: center;
+        min-height: 100vh; /* Set a minimum height for small screens */
+      }
+
+      .quotation-card {
+        background: linear-gradient(
+          to bottom right,
+          #e0e0e0,
+          #f0f0f0
+        ); /* Gradient background */
+        border-radius: 15px;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        padding: 30px;
+        text-align: center;
+        width: 45%;
+        height: 600px;
+        margin: 10px;
+        overflow: hidden;
+        transition: transform 0.3s ease-in-out;
+      }
+
+      .quotation-card:hover {
+        transform: scale(1.05); /* Add a slight scale effect on hover */
+      }
+
+      .quotation-symbol {
+        font-size: 8em; /* Larger font size for the quotation symbol */
+        color: #070707; /* Dark Orange symbol color for a devotional touch */
+        margin-bottom: 15px;
+      }
+
+      .quotation-text {
+        font-size: 1.2em;
+        color: #555; /* Dark gray text color for readability */
+        line-height: 1.6;
+        margin-bottom: 20px;
+      }
+
+      .quotation-author {
+        font-size: 1em;
+        font-weight: bold;
+        color: #777; /* Light gray color for the author name */
+        margin-top: 10px;
+      }
+
+      .quotation-image {
+        width: 150px; /* Set width to 100% for responsiveness */
+        height: 150px; /* Maintain aspect ratio */
+        max-width: 150px; /* Set a maximum width for large screens */
+        border-radius: 50%;
+        margin-top: 20px;
+      }
+
+      /* Tranquil background for the body */
+      body::before {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(45deg, #dcdcdc, #e6e6e6);
+        z-index: -1;
+      }
+
+      /* Media query for smaller screens */
+      @media only screen and (max-width: 768px) {
+        .quotation-card {
+          width: 90%; /* Adjust the width for smaller screens */
+        }
+      }
+
+      /* Media query for larger screens */
+      @media only screen and (min-width: 1200px) {
+        .quotation-card {
+          width: 22%; /* Adjust the width for larger screens */
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <section>
+      <div class="quotation-section">
+        <div class="quotation-card">
+          <div class="quotation-symbol">“</div>
+          <p class="quotation-text">
+            How we educate the mind will change with the times; how we cultivate
+            the heart is and will remain timeless. <br /><br />
+          </p>
+          <img
+            src="/Fr.Moreau.jpg"
+            alt="Quotation Image 1"
+            class="quotation-image"
+          />
+          <p class="quotation-author">- Bl. Basil Moreau</p>
+        </div>
+
+        <div class="quotation-card">
+          <div class="quotation-symbol">“</div>
+          <p class="quotation-text">
+            People who suffer have something to offer to God. When they succeed
+            in enduring their suffering, that is a daily miracle.
+          </p>
+          <img
+            src="/Br.Andre.png"
+            alt="Quotation Image 2"
+            class="quotation-image"
+          />
+          <p class="quotation-author">- St. André Bessette</p>
+        </div>
+
+        <!-- Additional cards for illustration -->
+        <div class="quotation-card">
+          <div class="quotation-symbol">“</div>
+          <p class="quotation-text">
+            The family that prays together stays together.
+            <br /><br /><br /><br />
+          </p>
+          <img
+            src="/Holy-ones/7_Patrick Payton.jpg"
+            alt="Quotation Image 3"
+            class="quotation-image"
+          />
+          <p class="quotation-author">- Venerable Patrick Peyton</p>
+        </div>
+
+        <div class="quotation-card">
+          <div class="quotation-symbol">“</div>
+          <p class="quotation-text">
+            Nobody builds alone but we build together. <br /><br /><br /><br />
+          </p>
+          <img
+            src="/Holy-ones/2_Fr.Moreau.jpg"
+            alt="Quotation Image 4"
+            class="quotation-image"
+          />
+          <p class="quotation-author">- Bl. Basil Moreau</p>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>

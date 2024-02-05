@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <title>Your Website</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap");
+      body {
+        margin: 0;
+        font-family: Merriweather, "Segoe UI", Tahoma, Geneva, Verdana,
+          sans-serif;
+        background-color: #f7f7f7;
+        color: #333;
+      }
+      .content h2 {
+        font-family: Merriweather Bold, Merriweather, "Segoe UI", Tahoma, Geneva,
+          Verdana, sans-serif;
+      }
+      .merriweather-regular {
+        font-family: "Merriweather", serif;
+        font-weight: 400;
+        font-style: normal;
+      }
+      .merriweather-bold {
+        font-family: "Merriweather", serif;
+        font-weight: 700;
+        font-style: normal;
+      }
+
+      .container {
+        display: flex;
+        background-color: #fff;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        margin: 20px;
+        /* border-radius: 8px; */
+        overflow: hidden;
+      }
+
+      .sidebar {
+        width: 200px;
+        height: auto;
+        background-color: #328a8e;
+        color: #ecf0f1;
+        padding: 20px;
+        box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        position: relative;
+        width: 300px; /* Set the initial width of the sidebar */
+        z-index: 2; /* Set a higher z-index to bring the toggleBtn to the front */
+        transition: width 0.3s ease;
+      }
+
+      .sidebar a {
+        text-decoration: none;
+        color: #ecf0f1;
+        display: flex;
+        align-items: center;
+        padding: 15px;
+        margin-bottom: 10px;
+        border-radius: 0;
+        transition: background-color 0.3s ease;
+      }
+      .sidebar a.active {
+        background-color: #50aab9; /* Change to the color you want for the active link */
+        color: #fff; /* Change to the text color you want for the active link */
+      }
+
+      .sidebar a i {
+        margin-right: 10px;
+      }
+
+      .sidebar a:hover {
+        background-color: #70d4b4;
+        color: black;
+      }
+
+      .sidebar a.clicked {
+        transition: box-shadow 0.3s ease;
+        box-shadow: 0 0 10px rgb(6, 243, 105); /* Change to the glow color you want */
+      }
+
+      .content {
+        flex: 1;
+        padding: 20px;
+        display: none;
+      }
+      .sidebar,
+      .content {
+        transition: width 0.3s ease;
+      }
+
+      .content.active {
+        display: block;
+      }
+
+      h2 {
+        color: #2c3e50;
+        margin-bottom: 10px;
+      }
+
+      p {
+        color: #555;
+        line-height: 1.6;
+      }
+      .sidebar ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      @media (max-width: 768px) {
+        .img {
+          padding: 5px; /* Adjust padding on smaller screens */
+        }
+      }
+
+      @media (max-width: 480px) {
+      }
+      .content-container {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: flex-start; /* Consider this change if needed */
+      }
+
+      .text-container {
+        flex: 2;
+        text-align: left;
+        margin-right: 20px;
+      }
+
+      .image-container {
+        flex: 1;
+      }
+
+      .image-container img {
+        max-width: 100%;
+        height: auto;
+        margin-left: 20px;
+        margin-top: 15px;
+      }
+
+      .content-container::after {
+        content: "";
+        display: table;
+        clear: both;
+      }
+
+      /* Add this at the end of your existing styles */
+      @media screen and (max-width: 600px) {
+        body {
+          margin: 0;
+          padding: 0;
+        }
+
+        .container {
+          margin: 0;
+          box-shadow: none;
+        }
+
+        .sidebar {
+          width: 100%;
+          box-shadow: none;
+          padding: 10px;
+        }
+
+        .sidebar a {
+          padding: 10px;
+        }
+
+        .content {
+          padding: 10px;
+        }
+
+        .content-container {
+          flex-direction: column;
+        }
+
+        .text-container {
+          margin-right: 0;
+        }
+
+        .image-container img {
+          margin-left: 0;
+        }
+      }
+
+      #toggleBtn {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        background-color: #1c666a;
+        color: #ecf0f1;
+        border: none;
+        padding: 15px;
+        cursor: pointer;
+        font-size: 20px;
+        transition: background-color 0.3s ease;
+        z-index: 3; /* Set a higher z-index for the toggleBtn */
+      }
+
+      #toggleBtn i {
+        font-size: 24px;
+      }
+
+      .logo {
+        display: flex;
+        align-items: center;
+        margin-bottom: 20px;
+        text-decoration: none;
+        color: #ecf0f1;
+        margin-left: 60px;
+        pointer-events: none;
+        filter: brightness(0) invert(1);
+      }
+
+      .sidebar.collapsed {
+        width: 60px; /* Set the width when the sidebar is collapsed */
+      }
+
+      .sidebar.collapsed #toggleBtn {
+        padding: 15px; /* Adjust the padding when the sidebar is collapsed */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="sidebar">
+        <button id="toggleBtn" onclick="toggleSidebar()">
+          <i class="fas fa-bars"></i>
+        </button>
+        <a href="#" class="logo">
+          <img
+            src="/sjp_anchor.png"
+            style="width: 80px"
+            alt="Your Website Logo"
+          />
+        </a>
+
+        <ul id="navLinks">
+          <li>
+            <a href="#" onclick="showContent('intro', this)">
+              <i class="fas fa-info-circle"></i> Introduction
+            </a>
+          </li>
+          <li>
+            <a href="#" onclick="showContent('history', this)"
+              ><i class="fas fa-history"></i> History</a
+            >
+          </li>
+          <li>
+            <a href="#" onclick="showContent('whoAreWe', this)"
+              ><i class="fas fa-users"></i> Who are we?</a
+            >
+          </li>
+          <li>
+            <a href="#" onclick="showContent('missionVision', this)"
+              ><i class="fas fa-bullseye"></i> Our Mission, Vision</a
+            >
+          </li>
+          <li>
+            <a href="#" onclick="showContent('charism', this)"
+              ><i class="fas fa-heart"></i> Our Charism</a
+            >
+          </li>
+          <li>
+            <a href="#" onclick="showContent('vows', this)"
+              ><i class="fas fa-handshake"></i> Our Vows</a
+            >
+          </li>
+          <li>
+            <a href="#" onclick="showContent('holyOnes', this)"
+              ><i class="fas fa-praying-hands"></i> Our Holy Ones</a
+            >
+          </li>
+        </ul>
+      </div>
+      <div class="content active" id="intro">
+        <h2>Introduction</h2>
+        <div class="content-container">
+          <div class="text-container">
+            <p>
+              To serve with zeal “to make God known, loved, and served, and thus
+              save souls” – that was the charge that Blessed Basile Moreau, our
+              founder, gave the Congregation of Holy Cross. Moreau founded the
+              Congregation on March 1, 1837, in Sainte-Croix, which at the time
+              was a small village outside of Le Mans, France. We are an
+              apostolic religious congregation composed of two distinct
+              societies of religious brothers and religious priests “bound
+              together in one indivisible brotherhood.”
+            </p>
+
+            <p>
+              Throughout our history, our mission has been to share in the
+              Church’s mission by working as educators in the faith. In all of
+              our ministries, whether schools, parishes, or other works of
+              missionary outreach and social justice, we serve side-by-side with
+              our collaborators through educating hearts and minds and building
+              communities of the coming kingdom. Today, the Congregation of Holy
+              Cross consists of over 1,200 perpetually professed religious
+              brothers and religious priests. Through our vowed religious life,
+              our apostolic work, and our conviction that “the cross is our only
+              hope,” we strive to be men with hope to bring in the 5 continents
+              in which we live and serve. The Congregation is under the
+              leadership of Br. Paul Bednarczyk, C.S.C., the 14th Superior
+              General in the history of Holy Cross. Along with his assistants on
+              the General Council, they oversee the 16 Provinces, Districts, and
+              Vicariates that constitute the Congregation.
+            </p>
+          </div>
+          <div class="image-container">
+            <img src="/spes-unica.png" alt="Image Description" />
+          </div>
+          <p>
+            Throughout our history, our mission has been to share in the
+            Church’s mission by working as educators in the faith. In all of our
+            ministries, whether schools, parishes, or other works of missionary
+            outreach and social justice, we serve side-by-side with our
+            collaborators through educating hearts and minds and building
+            communities of the coming kingdom. Today, the Congregation of Holy
+            Cross consists of over 1,200 perpetually professed religious
+            brothers and religious priests. Through our vowed religious life,
+            our apostolic work, and our conviction that “the cross is our only
+            hope,” we strive to be men with hope to bring in the 5 continents in
+            which we live and serve. The Congregation is under the leadership of
+            Br. Paul Bednarczyk, C.S.C., the 14th Superior General in the
+            history of Holy Cross. Along with his assistants on the General
+            Council, they oversee the 16 Provinces, Districts, and Vicariates
+            that constitute the Congregation.
+          </p>
+        </div>
+      </div>
+      <div class="content" id="history">
+        <h2>History</h2>
+        <p>
+          In 1820, Rev. Jacques Dujarié (1767-1838) began assembling a group of
+          young men to instruct the youth in the countryside of Northwestern
+          France. At the time, French society, including the Church, was still
+          wrestling with the upheaval caused by the French Revolution
+          (1789-1799). During the Revolution, Church property had been seized,
+          priests had been arrested and executed, and religious communities had
+          been expelled. The departure of many religious also meant the closure
+          of many schools. As a result, almost a whole generation in France had
+          grown up with little to no formal education in general, let alone in
+          matters of faith. Fr. Dujarié, who had been ordained in secret during
+          the Revolution, provided the young men with rudimentary training and
+          then sent them out to rural parishes to teach. These young men became
+          the Brothers of St. Joseph. As he grew in age and his health declined,
+          Fr. Dujarié turned over the leadership of the brothers on August 31,
+          1835, to a young and energetic priest named Basile Moreau.
+        </p>
+        <p>
+          By this time, Blessed Basile Moreau (1799-1873), who had been ordained
+          in 1821, had already organized a group of Auxiliary Priests from among
+          his brother priests in the Diocese of Le Mans. These Auxiliary Priests
+          were to assist the diocese by preaching parish missions and by
+          instructing the youth, particularly in preparatory seminaries and
+          colleges. Fundamental Act of Union For the sake of their common
+          mission as educators in the faith, Moreau joined the Brothers of St.
+          Joseph and Auxiliary Priests on March 1, 1837, in the Fundamental Act
+          of Union. The newly established Association of Holy Cross took its
+          name from the Sainte-Croix neighborhood in Le Mans in which it was
+          formed. Moreau’s vision for Holy Cross was not complete until 1841
+          when he founded a group of sisters to work with the brothers and the
+          priests. Moreau envisioned the sisters, brothers, and priests of Holy
+          Cross compromising one holy family in imitation of the Holy Family.
+        </p>
+        <p>
+          Although ordained a diocesan priest, Moreau wanted Holy Cross to be a
+          religious community, conformed to Jesus Christ and bounded to one
+          another by the religious vows of poverty, chastity, and obedience. The
+          first brothers professed their religious vows in 1836. Moreau himself,
+          along with four other priests, made his religious profession on August
+          15, 1840. The first sisters professed vows four years later in 1844.
+          Early Missionaries to Canada Moreau believed that the work that God
+          had entrusted to Holy Cross extended beyond the borders of France to
+          the rest of the world. Within a few short years of founding Holy
+          Cross, Moreau sent his priests, brothers, and sisters from France to
+          Algeria (1840), the United States (1841), Canada (1847), Italy (1850),
+          and East Bengal, or present-day India and Bangladesh (1852). On May
+          13, 1857, Pope Pius IX approved the first Constitutions of the
+          Congregation of Holy Cross. This approbation made Holy Cross an
+          official religious congregation under the direct authority of the Holy
+          See. As part of its approval, however, the Vatican required that the
+          sisters be in a separate congregation with a separate governance
+          structure from the priests and the brothers. That same year, on June
+          17, the Congregation’s Conventual Church of Notre-Dame de Sainte-Croix
+          was consecrated in Le Mans.
+        </p>
+      </div>
+      <div class="content" id="whoAreWe">
+        <h2>Who are we?</h2>
+        <p>
+          Vocations are signs of hope founded in faith. While this is true of
+          all vocations, it is most certainly true of religious life. In
+          abandoning all in faith to follow Christ in service of His church and
+          the world, religious brothers and religious priests seek to transform
+          their very lives into visible signs of hope. In his homily at the Mass
+          of his Initiation of the Petrine Ministry, Pope Francis said, “Today,
+          too, amid so much darkness, we need to see the light of hope and to be
+          men and women who bring hope to others.” The Congregation of Holy
+          Cross echoes the Pope's words in inviting young men who love the Lord
+          and His Church and desire to serve His people to discern a vocation
+          with us. The Church and the world need good, holy men who, founded in
+          faith, are willing to answer the Lord's call to be signs of hope as
+          religious brothers and religious priests.
+        </p>
+      </div>
+      <div class="content" id="missionVision">
+        <h2>Our Mission, Vision</h2>
+        <p>This is the mission and vision section. Add your content here.</p>
+        <blockquote>
+          "Your mission is to live your life, to express the depth and passion
+          of your being on behalf of humanity." - Ralph Waldo Emerson
+        </blockquote>
+      </div>
+      <div class="content" id="charism">
+        <h2>Our Charism</h2>
+        <p>
+          The Congregation of Holy Cross draws our spirituality and charism from
+          our founder, Blessed Basile Moreau. As a man of apostolic zeal, Moreau
+          was focused on the mission that Jesus Christ had entrusted to the
+          Church. While always emphasizing the need for personal holiness,
+          Moreau saw himself – and his religious family – as apostles to be sent
+          out by the Lord on behalf of His gospel. In particular, the Holy
+          Spirit inspired Moreau to found the Congregation to be sent as
+          educators in the faith. This is our charism. In all our many
+          ministries, we seek to educate in the faith by developing the mind,
+          cultivating the heart, enkindling a zeal for service, encouraging hope
+          in the cross, and uniting with others as family. As a man of broad
+          study and deep piety, Moreau had many spiritual influences. He learned
+          the French School of Spirituality in the Sulpician seminary; he was an
+          avid student of St. Ignatius of Loyola and his Spiritual Exercises;
+          and he became a close friend and collaborator of the Benedictine Abbot
+          and Liturgist Dom Gueranger.
+        </p>
+      </div>
+      <div class="content" id="vows">
+        <h2>Our Vows</h2>
+        <p>This is the vows section. Add your content here.</p>
+      </div>
+      <div class="content" id="holyOnes">
+        <h2>Our Holy Ones</h2>
+        <p>
+          Generations of men have made and lived by their vows within the
+          Congregation of Holy Cross. For the better part of two centuries, Holy
+          Cross priests and brothers have made countless sacrifices and shown
+          heroic virtue in service of the gospel. Some of these men have been
+          officially recognized by the Church for their holiness. St. André
+          Bessette, the humble brother who was known as the "Miracle Man of
+          Montreal," became the Congregation's first canonized saint on October
+          17, 2010. Our founder, Blessed Basile Moreau, was beatified in France
+          in 2007, the final step before being canonized a saint. Four other
+          Holy Cross religious – Bishop Theotonius Ganguly, Br. Flavian
+          Laplante, C.S.C., Bishop Vincent McCauley, and Br. Columba O'Neill,
+          C.S.C. – have been declared Servants of God. On December 18, 2017,
+          Pope Francis approved the Decree of the Heroic Virtue of Servant of
+          God Patrick Peyton, thus bestowing on him the title of Venerable.
+          After formal investigations of all five Holy Cross religious, their
+          heroic virtue has been attested to, and their formal causes for
+          canonization continue. The cause is also being advanced for Rev.
+          Jaques Dujarié, who founded the Brothers of St. Joseph, who later
+          became the Holy Cross Brothers.
+        </p>
+      </div>
+      <!-- Add more content sections as needed -->
+    </div>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"
+      integrity="sha384-b4gtAMsQB0Ar8Oc8OS5P1yOtnfI5/OrJcxRh5W56UvMC4iVU0AR0Zqyke5RnV7dz"
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      function showContent(contentId) {
+        // Hide all content sections
+        var contents = document.querySelectorAll(".content");
+        contents.forEach(function (content) {
+          content.classList.remove("active");
+        });
+
+        // Show the selected content
+        var selectedContent = document.getElementById(contentId);
+        selectedContent.classList.add("active");
+      }
+      function showContent(contentId, linkElement) {
+        // Remove "active" class from all links
+        var links = document.querySelectorAll(".sidebar a");
+        links.forEach(function (link) {
+          link.classList.remove("active");
+        });
+
+        // Add "active" class to the clicked link
+        linkElement.classList.add("active");
+
+        // Hide all content sections
+        var contents = document.querySelectorAll(".content");
+        contents.forEach(function (content) {
+          content.classList.remove("active");
+        });
+
+        // Show the selected content
+        var selectedContent = document.getElementById(contentId);
+        selectedContent.classList.add("active");
+      }
+
+      // to glow the sidebar link on mouse click
+      function showContent(contentId, linkElement) {
+        // Add "clicked" class to the clicked link for the glow effect
+        linkElement.classList.add("clicked");
+
+        // Set a timeout to remove the "clicked" class after a short delay
+        setTimeout(function () {
+          linkElement.classList.remove("clicked");
+        }, 300); // Adjust the delay (in milliseconds) as needed
+
+        // Remove "active" class from all links
+        var links = document.querySelectorAll(".sidebar a");
+        links.forEach(function (link) {
+          link.classList.remove("active");
+        });
+
+        // Add "active" class to the clicked link
+        linkElement.classList.add("active");
+
+        // Hide all content sections
+        var contents = document.querySelectorAll(".content");
+        contents.forEach(function (content) {
+          content.classList.remove("active");
+        });
+
+        // Show the selected content
+        var selectedContent = document.getElementById(contentId);
+        selectedContent.classList.add("active");
+      }
+
+      // Toggle button to hide & show sidebar
+      function toggleSidebar() {
+        var sidebar = document.querySelector(".sidebar"); // Use querySelector with class
+        var navLinks = document.getElementById("navLinks");
+
+        if (sidebar.style.width === "35px") {
+          sidebar.style.width = "300px";
+          navLinks.style.display = "block";
+        } else {
+          sidebar.style.width = "35px";
+          navLinks.style.display = "none";
+        }
+      }
+    </script>
+
+    <script src="script.js"></script>
+  </body>
+</html>

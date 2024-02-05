@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      /* Style the sidebar */
+      .sidebar {
+        height: 100%;
+        width: 20%;
+        position: fixed;
+        z-index: 1;
+        top: 0;
+        left: 0;
+        background-color: #50aab9;
+        overflow-x: hidden;
+        padding-top: 20px;
+        transition: 0.5s;
+      }
+
+      .sidebar a {
+        padding: 10px 10px 10px 30px;
+        text-decoration: none;
+        font-size: 18px;
+        background-color: #78909c; /* Light Steel Blue */
+        color: #fff; /* White */
+        display: block;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        margin: 5px;
+      }
+
+      .sidebar.open {
+        width: 45%;
+      }
+
+      /* Change color of sidebar links on hover */
+      .sidebar a:hover {
+        background-color: #546e7a; /* Dark Steel Blue */
+        color: #fff;
+      }
+
+      /* Style the content */
+      .content {
+        margin-left: 20%;
+        padding: 20px;
+        height: 100%;
+        overflow-y: auto;
+        background-color: #eceff1;
+      }
+
+      /* Style the title */
+      .title {
+        font-size: 36px;
+        font-weight: bold;
+        text-align: center;
+      }
+
+      /* Style the subtitles */
+      .subtitle {
+        font-size: 24px;
+        font-weight: bold;
+        margin-top: 20px;
+        margin-bottom: 10px;
+      }
+
+      /* Style the images */
+      img {
+        width: 300px;
+        height: 200px;
+        border: 2px solid #ccc;
+        box-shadow: 2px 2px 4px #999;
+      }
+
+      /* Float the images */
+      img.left {
+        float: left;
+        margin-right: 10px;
+      }
+
+      img.right {
+        float: right;
+        margin-left: 10px;
+      }
+
+      /* Clear the floats */
+      .clear {
+        clear: both;
+      }
+
+      /* Add some backgrounds and text-colors to the sidebar links */
+      .sidebar a {
+        background-color: #165c69;
+        color: #f5eded;
+        margin-top: 10px;
+      }
+      .sidebar a:first-child {
+        margin-top: 40px;
+      }
+
+      /* Add some backgrounds and text-colors to the sidebar links on hover */
+      .sidebar a:hover {
+        background-color: #abe1ea;
+        color: #070707;
+      }
+
+      /* Add some transitions and transforms to the images on hover */
+      img:hover {
+        transition: transform 0.3s;
+        transform: scale(1.1);
+      }
+
+      /* Add some fonts and text-alignments to the headings and paragraphs */
+      h1 {
+        font-family: Arial, Helvetica, sans-serif;
+        text-align: center;
+      }
+
+      p {
+        font-family: Georgia, "Times New Roman", Times, serif;
+        text-align: justify;
+      }
+
+      /* Add some icons to the sidebar links using Font Awesome */
+      .sidebar a .fa {
+        margin-right: 10px;
+      }
+
+      .toggle-button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: fixed;
+        top: 10px;
+        left: 10px;
+        width: 40px;
+        height: 40px;
+        background-color: #328a8e;
+        border: 1px solid #455a64;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        cursor: pointer;
+        display: none;
+        z-index: 2;
+      }
+
+      .toggle-button .fa {
+        font-size: 24px;
+        color: #fff;
+        line-height: 35px;
+        margin-left: 8px;
+      }
+
+      .sidebar a.show {
+        opacity: 1;
+      }
+      /* Add a horizontal line after every div of text */
+      .subtitle::after,
+      .content > div:not(:last-child)::after {
+        content: "";
+        display: block;
+        border-top: 1px solid #165c69; /* Adjust the color as needed */
+        opacity: 0.5; /* Adjust the transparency as needed */
+        margin: 20px 0;
+        width: 100%;
+      }
+
+      @media screen and (max-width: 768px) {
+        .sidebar {
+          width: 0;
+        }
+
+        .content {
+          margin-left: 0;
+        }
+
+        .toggle-button {
+          display: block;
+        }
+
+        .sidebar a:not(.toggle-button) {
+          display: none;
+        }
+
+        .sidebar.open a {
+          display: block;
+          margin-top: 5px;
+        }
+        .sidebar.open a:first-child {
+          margin-top: 50px;
+        }
+
+        .sidebar a.show {
+          opacity: 1;
+        }
+        img {
+          margin: 10px auto;
+          display: block;
+          width: 100%;
+        }
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+    </style>
+    <script
+      src="https://kit.fontawesome.com/d492308d15.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <div class="sidebar">
+      <a href="#history-content" id="history" class="scroll-link"
+        ><i class="fa fa-history"></i>Our History</a
+      >
+      <a href="#mission-content" id="mission"
+        ><i class="fa fa-rocket"></i>Our Mission</a
+      >
+      <a href="#vows-content" id="vows"><i class="fa fa-heart"></i>Our Vows</a>
+      <a href="#charism-content" id="charism"
+        ><i class="fa fa-fire"></i>Our Charism</a
+      >
+      <a href="#vocation-content" id="vocation"
+        ><i class="fa fa-star"></i>Our Vocation</a
+      >
+      <a href="#prayer-content" id="prayer"
+        ><i class="fa-solid fa-hands-praying"></i> Our Prayer Life</a
+      >
+      <a href="#community-content" id="community"
+        ><i class="fa fa-users"></i>Our Community Life</a
+      >
+    </div>
+    <div class="toggle-button">
+      <i class="fa fa-bars"></i>
+    </div>
+
+    <div class="content">
+      <h1 class="title">Welcome to our webpage</h1>
+      <div id="history-content">
+        <h2 class="subtitle">Our History</h2>
+        <p>
+          Imagine living in France in the early 19th century, after the chaos
+          and violence of the French Revolution. The Church is in disarray, the
+          people are in need of hope and guidance, and the society is in
+          transition. In this turbulent time, a young priest named Basile Moreau
+          has a dream: to form a new religious community of priests, brothers,
+          and sisters who would work together to educate and evangelize the
+          people of France and beyond.
+        </p>
+        <img src="/ab-1.jpg" alt="History" class="right" />
+        <p>
+          Moreau was born in 1799 in Laigné-en-Belin, a small village near Le
+          Mans. He grew up in a devout Catholic family and felt called to the
+          priesthood from an early age. He entered the seminary in 1814 and was
+          ordained in 1821. He soon became a professor of theology and
+          philosophy at the seminary of Le Mans, where he impressed his students
+          and colleagues with his intelligence, piety, and charisma.
+        </p>
+        <p>
+          Moreau had a vision of a religious community that would combine the
+          apostolic zeal of the Jesuits, the simplicity and humility of the
+          Franciscans, and the devotion and tenderness of the Montfortians. He
+          wanted his community to be modeled after the Holy Family of Jesus,
+          Mary, and Joseph, and to have the cross as its symbol and hope. He
+          also wanted his community to be open to the signs of the times and to
+          the needs of the Church and the world.
+        </p>
+        <div class="clear"></div>
+      </div>
+      <div id="mission-content">
+        <h2 class="subtitle">Our Mission</h2>
+        <img src="/dibosh-grp.jpg" alt="Mission" class="left" />
+        <p>
+          Our mission is to be faithful disciples of Jesus Christ, who came to
+          proclaim the good news to the poor, to heal the brokenhearted, to set
+          the captives free, and to bring hope to the world. We are inspired by
+          the words of our founder, who said: "We are not here to do great
+          things, but to do small things with great love."
+        </p>
+        <p>
+          We seek to live out our mission through our vows of poverty, chastity,
+          and obedience, which express our total commitment to God and to our
+          brothers and sisters in the congregation and in the world. We also
+          seek to live out our mission through our charism, which is the gift of
+          the Holy Spirit that animates our life and ministry.
+        </p>
+        <div class="clear"></div>
+      </div>
+      <div id="vows-content">
+        <h2 class="subtitle">Our Vows</h2>
+        <p>
+          Our vows are the expression of our love for God and for our neighbor.
+          They are the means by which we conform ourselves to Christ and share
+          in his mission. They are also the source of our joy and freedom, as we
+          rely on God's grace and providence.
+        </p>
+        <img src="/fest.jpg" alt="Vows" class="right" />
+        <p>
+          We profess the vows of poverty, chastity, and obedience, following the
+          evangelical counsels that Jesus taught and lived. By the vow of
+          poverty, we renounce the ownership of material goods and share
+          everything in common, trusting in God's generosity and care. By the
+          vow of chastity, we dedicate our whole being to God and to the service
+          of his people, living in celibacy and in fraternal love. By the vow of
+          obedience, we listen to God's will and to the voice of the Church,
+          submitting ourselves to the authority of our superiors and to the
+          common good of the congregation.
+        </p>
+        <div class="clear"></div>
+      </div>
+      <div id="charism-content">
+        <h2 class="subtitle">Our Charism</h2>
+        <img src="/first-profn-2023.jpg" alt="Charism" class="left" />
+        <p>
+          Our charism is the gift of the Holy Spirit that gives us a distinctive
+          identity and mission in the Church. Our charism is to be a sign of the
+          cross, the symbol of God's love and mercy for the world. We are called
+          to embrace the cross in our own lives, to share in the sufferings of
+          Christ and of his people, and to witness to the power of the
+          resurrection and the hope of glory.
+        </p>
+        <p>
+          Our charism also impels us to be a sign of unity, the fruit of the
+          cross. We are called to foster communion among ourselves, among the
+          members of the Church, and among all people of good will. We are
+          called to promote dialogue, reconciliation, and peace in a divided and
+          wounded world.
+        </p>
+        <div class="clear"></div>
+      </div>
+      <div id="vocation-content">
+        <h2 class="subtitle">Our Vocation</h2>
+        <p>
+          Our vocation is to be holy, as God is holy. We are called to follow
+          Jesus Christ, the way, the truth, and the life, and to imitate his
+          virtues and attitudes. We are called to be faithful to the Gospel, to
+          the teachings of the Church, and to the spirit of our founder. We are
+          called to be men and women of prayer, of service, and of mission.
+        </p>
+        <img src="/photo2_MG_7487.jpg" alt="Vocation" class="right" />
+        <p>
+          Our vocation is also to be apostolic, as Jesus was sent by the Father.
+          We are called to share in the mission of Christ, who came to save the
+          world and to make all things new. We are called to use our gifts and
+          talents for the glory of God and for the good of his people. We are
+          called to be co-workers with the Holy Spirit, who guides and empowers
+          us for our ministry.
+        </p>
+        <div class="clear"></div>
+      </div>
+      <div id="prayer-content">
+        <h2 class="subtitle">Our Prayer Life</h2>
+        <img src="/photo_MG_7357.jpg" alt="Prayer" class="left" />
+        <p>
+          Our prayer life is the foundation and the nourishment of our vocation.
+          We pray to praise and thank God, to ask for his help and forgiveness,
+          to intercede for the needs of the Church and the world, and to listen
+          to his voice and his will. We pray individually and communally, in
+          private and in public, in silence and in words, in action and in
+          contemplation.
+        </p>
+        <p>
+          We pray according to the liturgy of the Church, especially the
+          Eucharist and the Liturgy of the Hours, which are the sources and the
+          summits of our spiritual life. We also pray according to the
+          traditions of our congregation, such as the rosary, the stations of
+          the cross, the novena to the Sacred Heart, and the spiritual exercises
+          of St. Ignatius. We also pray according to our personal preferences
+          and needs, such as meditation, lectio divina, adoration, and spiritual
+          reading.
+        </p>
+        <div class="clear"></div>
+      </div>
+      <div id="community-content">
+        <h2 class="subtitle">Our Community Life</h2>
+        <p>
+          Our community life is the expression and the support of our vocation.
+          We live together as brothers and sisters, sharing our joys and
+          sorrows, our strengths and weaknesses, our hopes and fears. We live
+          together as friends, respecting and appreciating each other's
+          diversity, personality, and gifts. We live together as disciples,
+          following the same Lord and Master, and striving to grow in holiness
+          and in apostolic zeal.
+        </p>
+        <img src="/img/bg3.jpg" alt="Community" class="right" />
+        <p>
+          We live according to the rule of life of our congregation, which
+          outlines the principles and practices of our common life. We also live
+          according to the guidance of our superiors, who are the servants and
+          the leaders of our communities. We also live according to the needs
+          and the opportunities of our ministry, which may require us to adapt
+          and to be flexible in our community arrangements.
+        </p>
+        <div class="clear"></div>
+      </div>
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        var sidebar = document.querySelector(".sidebar");
+        var toggleButton = document.querySelector(".toggle-button");
+
+        var sidebarLinks = document.querySelectorAll(".sidebar a");
+
+        toggleButton.addEventListener("click", function () {
+          sidebar.classList.toggle("open");
+
+          // Toggle the visibility of all sidebar links
+          sidebarLinks.forEach(function (link) {
+            link.classList.toggle("show");
+          });
+        });
+      });
+    </script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Select all links with the class 'scroll-link'
+        const scrollLinks = document.querySelectorAll(".scroll-link");
+
+        // Attach a click event listener to each link
+        scrollLinks.forEach((link) => {
+          link.addEventListener("click", function (e) {
+            e.preventDefault();
+
+            // Get the target section's id from the link's href attribute
+            const targetId = this.getAttribute("href").substring(1);
+            const targetSection = document.getElementById(targetId);
+
+            // Scroll to the target section with smooth behavior
+            targetSection.scrollIntoView({
+              behavior: "smooth",
+            });
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
