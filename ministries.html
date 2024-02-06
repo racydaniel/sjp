@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Professional Table</title>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
+    <style>
+      body {
+        font-family: "Roboto", sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        min-height: 100vh;
+      }
+
+      .search-container {
+        margin-top: 20px;
+        width: 50%;
+        position: relative;
+        /* add a border and some padding to the container */
+        border: 1px solid #ccc;
+        padding: 10px;
+      }
+
+      .search-icon {
+        /* position the icon inside the input */
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        /* change the color and size of the icon */
+        color: #999;
+        font-size: 24px;
+      }
+
+      #searchInput {
+        /* make the input fill the container */
+        width: 90%;
+        height: 20px;
+        /* remove the default border and outline */
+        border: none;
+        outline: none;
+        /* add some padding and font style to the input */
+        padding: 10px;
+        font-size: 18px;
+        font-family: Arial, sans-serif;
+      }
+
+      input[type="text"] {
+        width: calc(100% - 30px);
+        padding: 10px 30px 10px 10px;
+        margin-bottom: 10px;
+        box-sizing: border-box;
+        border: 1px solid #1976d2;
+        border-radius: 4px;
+        outline: none;
+        font-size: 16px;
+        transition: all 0.3s ease-in-out;
+      }
+
+      .search-icon {
+        position: absolute;
+        top: 50%;
+        right: 10px;
+        transform: translateY(-50%);
+        color: #555;
+        cursor: pointer;
+      }
+
+      input[type="text"]:focus {
+        border-color: #0d47a1;
+        box-shadow: 0 0 10px rgba(13, 71, 161, 0.3);
+      }
+
+      .table-container {
+        width: 80%;
+        margin: 20px auto;
+      }
+
+      table {
+        background-color: #fff;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        margin-top: 20px;
+        text-align: center;
+      }
+
+      th,
+      td {
+        padding: 15px;
+        text-align: left;
+        border-bottom: 1px solid #e0e0e0;
+        font-weight: 400;
+      }
+
+      th {
+        background-color: #2171c2;
+        color: #fff;
+        font-weight: 600;
+      }
+
+      th:nth-child(3),
+      th:nth-child(4),
+      th:nth-child(5),
+      th:nth-child(6),
+      th:nth-child(7),
+      th:nth-child(8),
+      td:nth-child(3),
+      td:nth-child(4),
+      td:nth-child(5),
+      td:nth-child(6),
+      td:nth-child(7),
+      td:nth-child(8) {
+        text-align: center;
+      }
+
+      tbody tr:nth-child(even) {
+        background-color: #f0f8ff;
+      }
+
+      tbody tr:hover {
+        background-color: #e3f2fd;
+        transition: background-color 0.3s ease;
+      }
+
+      /* Placeholder Animation */
+      input[type="text"]::placeholder {
+        color: #555;
+        opacity: 0.7;
+        transition: color 0.3s ease, opacity 0.3s ease;
+      }
+
+      input[type="text"]:focus::placeholder {
+        color: transparent;
+        opacity: 0;
+      }
+
+      /* Responsive Header Styles */
+      .responsive-header {
+        padding: 10px;
+        text-align: center;
+      }
+
+      .logo {
+        max-width: 400px; /* Adjust the size of the logo as needed */
+        height: auto;
+        display: inline-block;
+        vertical-align: middle;
+      }
+      .styled-hr {
+        width: 100%;
+        height: 3px;
+        background-color: #dcac58; /* Choose your preferred color */
+        margin: 20px auto;
+        border: none;
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="responsive-header">
+      <img class="logo" src="images/logo_1_sjp.png" alt="Logo" />
+    </div>
+    <hr class="styled-hr" />
+
+    <div class="search-container">
+      <input type="text" id="searchInput" placeholder="Search..." />
+      <i class="material-icons search-icon">search</i>
+    </div>
+
+    <div class="table-container">
+      <table class="striped responsive-table">
+        <thead>
+          <tr>
+            <th>Sl</th>
+            <th>Name of the School</th>
+            <th>Standard</th>
+            <th>Year of Est.</th>
+            <th>Num of Students</th>
+            <th>Num of Teachers</th>
+            <th>Website</th>
+            <th>Location</th>
+          </tr>
+        </thead>
+        <tbody id="tableBody">
+          <!-- Repeat this row structure for 10 rows -->
+          <tr>
+            <td>1</td>
+            <td>St. Joseph Higher Secondary School</td>
+            <td>3 - 12</td>
+            <td>1990</td>
+            <td>3000</td>
+            <td>60</td>
+            <td>
+              <a href="http://www.sjs.edu.bd" target="_blank">www.sjs.edu.bd</a>
+            </td>
+            <td>Mohammadpur, Dhaka</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>St. Gregory's School & College</td>
+            <td>3 - 12</td>
+            <!-- Sample data for the new column -->
+            <td>1990</td>
+            <td>4000</td>
+            <td>80</td>
+            <td>
+              <a href="http://www.sghscdhaka.edu.bd" target="_blank"
+                >www.sghscdhaka.edu.bd</a
+              >
+            </td>
+            <td>Luxmibazar, Dhaka</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>St. Placid's School & College</td>
+            <td>1 - 12</td>
+            <!-- Sample data for the new column -->
+            <td>1990</td>
+            <td>500</td>
+            <td>25</td>
+            <td>
+              <a href="http://www.school1.com" target="_blank"
+                >www.school1.com</a
+              >
+            </td>
+            <td>Patherghata, Chattogram</td>
+          </tr>
+          <tr>
+            <td>4</td>
+            <td>St. Philip's School & College</td>
+            <td>1 - 12</td>
+            <!-- Sample data for the new column -->
+            <td>1965</td>
+            <td>500</td>
+            <td>25</td>
+            <td>
+              <a href="http://www.school1.com" target="_blank"
+                >www.school1.com</a
+              >
+            </td>
+            <td>Kosba, Dinajpur</td>
+          </tr>
+          <tr>
+            <td>5</td>
+            <td>Bandura Holy Cross School & College</td>
+            <td>5 - 12</td>
+            <!-- Sample data for the new column -->
+            <td>1990</td>
+            <td>500</td>
+            <td>25</td>
+            <td>
+              <a href="http://www.school1.com" target="_blank"
+                >www.school1.com</a
+              >
+            </td>
+            <td>Bandura, Nowabgonj</td>
+          </tr>
+          <tr>
+            <td>6</td>
+            <td>St. Nicholas School & College</td>
+            <td>5 - 12</td>
+            <!-- Sample data for the new column -->
+            <td>1990</td>
+            <td>500</td>
+            <td>25</td>
+            <td>
+              <a href="http://www.school1.com" target="_blank"
+                >www.school1.com</a
+              >
+            </td>
+            <td>Nagari, Gazipur</td>
+          </tr>
+          <tr>
+            <td>7</td>
+            <td>Holy Cross School & College</td>
+            <td>5 - 12</td>
+            <!-- Sample data for the new column -->
+            <td>1990</td>
+            <td>500</td>
+            <td>25</td>
+            <td>
+              <a href="http://www.school1.com" target="_blank"
+                >www.school1.com</a
+              >
+            </td>
+            <td>Rajshahi</td>
+          </tr>
+          <!-- ... (Repeat for other rows) ... -->
+        </tbody>
+      </table>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        $("#searchInput").on("keyup", function () {
+          var value = $(this).val().toLowerCase();
+          $("#tableBody tr").filter(function () {
+            $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
