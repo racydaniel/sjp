@@ -47,9 +47,9 @@ body {
   color: var(--text-color);
 }
 
-ul {
+/* ul {
   list-style: none;
-}
+} */
 
 a {
   text-decoration: none;

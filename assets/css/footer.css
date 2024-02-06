@@ -21,7 +21,7 @@ body {
     flex-wrap: wrap;
 }
 
-ul {
+.footer-col .footer-ul {
     list-style: none;
 }
 
