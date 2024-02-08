@@ -113,14 +113,16 @@
         color: white;
         font-size: 36px;
         text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-        margin-top: 100px;
+        /* margin-top: 100px; */
       }
 
       .card-back p {
-        color: white;
-        font-size: 12px;
-        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
-        margin: 20px;
+        color: rgb(0, 0, 0);
+        font-size: 13px;
+        /* text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4); */
+        margin-top: 0;
+        margin-left: 20px;
+        margin-right: 20px;
       }
 
       .flip-icon {
@@ -164,69 +166,38 @@
       // JSON data for the cards
       const jsonData = [
         {
-          image: "/Fr.Moreau.jpg",
-          title: "God is Love",
-          text: "Love the Lord your God with all your heart and with all your soul and with all your mind and with all your strength. Mark 12:30",
+          image: "/images/Fr.Moreau.jpg",
+          title: "Blessed Basil Moreau",
+          text: "Founder of the Congregation of Holy Cross",
           backTitle: "Prayer",
           backText:
-            "God is light; in him there is no darkness at all. If we claim to have fellowship with him and yet walk in the darkness, we lie and do not live out the truth. 1 John 1:5-6",
+            "O God, source of all wisdom and knowledge, You inspired Blessed Basil Moreau To establish the Congregation of Holy Cross To educate the minds and hearts of your people. Through his intercession, grant us The grace to follow his example of faith, hope, and love. May we learn from him to seek your will in all things And to serve you joyfully in the Church and the world. We ask this through Christ our Lord. Amen.",
         },
         {
-          image: "/Fr.Dujarie.jpg",
-          title: "God is Love",
-          text: "Love the Lord your God with all your heart and with all your soul and with all your mind and with all your strength. Mark 12:30",
+          image: "/images/Fr.Dujarie.jpg",
+          title: "Jacques-François Dujarié",
+          text: "Founder of the then Brothers of St. Joseph, now Brothers of Holy Cross",
           backTitle: "Prayer",
           backText:
-            "God is light; in him there is no darkness at all. If we claim to have fellowship with him and yet walk in the darkness, we lie and do not live out the truth. 1 John 1:5-6",
+            "O God, you called your servant Jacques-François Dujarié to serve you and your people with courage and compassion in times of trial and persecution. You inspired him to found religious congregations to educate the young and care for the sick and the poor. Grant us, through his intercession, the grace to follow his example of faith and charity, and to work for the coming of your kingdom. We ask this through Christ our Lord. Amen.",
         },
         {
-          image: "/Br.Andre.png",
-          title: "God is Love",
-          text: "Love the Lord your God with all your heart and with all your soul and with all your mind and with all your strength. Mark 12:30",
+          image: "/images/Br.Andre.png",
+          title: "St. André Bessette",
+          text: "1st Saint of Holy Cross Congregation",
           backTitle: "Prayer",
           backText:
-            "O Saint André Bessette,  you who answered the door and welcomed the suffering souls with compassion and prayer, intercede for me today and bring my needs to St. Joseph. You who witnessed many miracles through the oil of St. Joseph, obtain for me the grace of healing in body, mind, and spirit. Help me to trust in God's will and to accept his loving plan.",
+            "O Saint André Bessette,  you who answered the door and welcomed the suffering souls with compassion and prayer, intercede for me today and bring my needs to St. Joseph. You who witnessed many miracles through the oil of St. Joseph, obtain for me the grace of healing in body, mind, and spirit. Help me to trust in God's will and to accept his loving plan. Amen.",
         },
         {
-          image: "/Br.Flavian.jpg",
-          title: "God is Love",
-          text: "Love the Lord your God with all your heart and with all your soul and with all your mind and with all your strength. Mark 12:30",
+          image: "/images/Br.Flavian.jpg",
+          title: "Servant of God Flavian Laplante",
+          text: "Friend of Fishermen",
           backTitle: "Prayer",
           backText:
-            "God is light; in him there is no darkness at all. If we claim to have fellowship with him and yet walk in the darkness, we lie and do not live out the truth. 1 John 1:5-6",
+            "O God, you called your servant Flavian Laplante to leave his homeland and dedicate his life to the mission in a land of poverty and hardship. You filled him with a spirit of zeal and charity that enabled him to serve you and your people with courage and compassion. Through his intercession, grant us the grace to be faithful to our vocation and to share your love with all those in need. We ask you to bless the Church in Bangladesh and to inspire more vocations to the Congregation of Holy Cross. We also pray for the recognition of Flavian's holiness and for the advancement of his cause of canonization. We ask this through Christ our Lord. Amen.",
         },
-        {
-          image: "/Fr.Moreau.jpg",
-          title: "God is Love",
-          text: "Love the Lord your God with all your heart and with all your soul and with all your mind and with all your strength. Mark 12:30",
-          backTitle: "Prayer",
-          backText:
-            "God is light; in him there is no darkness at all. If we claim to have fellowship with him and yet walk in the darkness, we lie and do not live out the truth. 1 John 1:5-6",
-        },
-        {
-          image: "/Fr.Dujarie.jpg",
-          title: "God is Love",
-          text: "Love the Lord your God with all your heart and with all your soul and with all your mind and with all your strength. Mark 12:30",
-          backTitle: "Prayer",
-          backText:
-            "God is light; in him there is no darkness at all. If we claim to have fellowship with him and yet walk in the darkness, we lie and do not live out the truth. 1 John 1:5-6",
-        },
-        {
-          image: "/Br.Andre.png",
-          title: "God is Love",
-          text: "Love the Lord your God with all your heart and with all your soul and with all your mind and with all your strength. Mark 12:30",
-          backTitle: "Prayer",
-          backText:
-            "God is light; in him there is no darkness at all. If we claim to have fellowship with him and yet walk in the darkness, we lie and do not live out the truth. 1 John 1:5-6",
-        },
-        {
-          image: "/Br.Flavian.jpg",
-          title: "God is Love",
-          text: "Love the Lord your God with all your heart and with all your soul and with all your mind and with all your strength. Mark 12:30",
-          backTitle: "Prayer",
-          backText:
-            "God is light; in him there is no darkness at all. If we claim to have fellowship with him and yet walk in the darkness, we lie and do not live out the truth. 1 John 1:5-6",
-        },
+
         // Add more objects for additional cards
       ];
 
