@@ -11,7 +11,21 @@
 h1 {
     text-align: center;
     margin: 2rem 0;
-    font-size: 2.5rem;
+    font-size: 2rem;
+    text-align: center;
+}
+
+
+#faq-title {
+    font-size: 36px;
+    /* Adjust the font size as needed */
+    font-weight: bold;
+    text-align: center;
+    color: #030303;
+    /* Choose a color for the text */
+    margin-bottom: 20px;
+    /* Adjust spacing as needed */
+    width: 100%;
 }
 
 .accordion {

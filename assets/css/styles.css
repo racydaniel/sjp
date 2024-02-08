@@ -114,6 +114,13 @@ a {
   margin-right: 10px;
   transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out;
 }
+@media screen and (max-width: 768px) {
+  #logoLink img {
+      width: 300px;
+      height: auto;
+    }
+}
+
 #logoLink:hover img {
   transform: scale(1.1);
   filter: brightness(1.2);
@@ -123,6 +130,10 @@ a {
 }
 .nav__logo:hover {
   color: var(--first-color);
+}
+#logoLink img {
+  width: 300px;
+  height: auto;
 }
 .nav__toggle {
   position: relative;
@@ -421,8 +432,8 @@ a {
     font-size: 15px;
   }
     #logoLink img {
-      width: 45px;
-      height: 45px;
+      width: 300px;
+      height: auto;
     }
 }
 
