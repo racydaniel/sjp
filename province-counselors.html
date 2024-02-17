@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .wrapper--team {
+        margin: 0;
+        padding: 2rem 1rem;
+        /* background-color: #e9e7d0; */
+        background-color: #ced5d7;
+      }
+      .l-container {
+        margin: 0 auto;
+      }
+      @media screen and (min-width: 64em) {
+        .l-container {
+          max-width: 64rem;
+        }
+      }
+
+      @media screen and (min-width: 75em) {
+        .l-container {
+          max-width: 75rem;
+        }
+      }
+
+      .team-grid {
+        margin: 0 auto;
+        text-align: center;
+      }
+      .team-grid:before,
+      .team-grid:after {
+        content: " ";
+        display: table;
+      }
+      .team-grid:after {
+        clear: both;
+      }
+      .team-grid__member {
+        font-family: ff-tisa-web-pro;
+        max-width: 100%;
+        padding: 0.5rem;
+        margin: 0 0 0.5rem;
+        display: inline-block;
+        float: none;
+        /* width: 100%; */
+        text-align: center;
+        box-sizing: border-box;
+        flex: 1 0 200px;
+        vertical-align: top;
+        margin: 0 1%;
+        transition: transform 0.3s;
+        /* width: calc(33.33% - 2%); */
+      }
+      .team-grid__member:hover {
+        transform: scale(1.05);
+      }
+
+      @media screen and (min-width: 28em) {
+        .team-grid__member {
+          width: 49%;
+          max-width: none;
+        }
+      }
+      @media screen and (min-width: 42em) {
+        .team-grid__member {
+          width: 32.5%;
+        }
+      }
+      @media screen and (min-width: 62em) {
+        .team-grid__member {
+          width: 19.45%;
+        }
+      }
+      .team-grid__member {
+        position: relative;
+        overflow: hidden;
+        height: 415px;
+      }
+      .team-grid__member img {
+        width: 200px;
+        height: 230px;
+        border: 8px solid #fff;
+        box-sizing: border-box;
+        display: block;
+        /* object-fit: cover; */
+      }
+
+      .member__info {
+        color: #fff;
+        height: auto;
+        width: auto;
+        top: 1rem;
+        left: 1rem;
+        right: 1rem;
+        bottom: 1rem;
+        /* background: rgba(0, 0, 0, 0.85); */
+        background: #107896;
+
+        backface-visibility: hidden;
+        transition: opacity 0.4s ease-in-out;
+        clear: both; /* added */
+        flex: 1;
+        width: 200px;
+      }
+
+      .member__name {
+        /* color: #d9bc55; */
+        color: aliceblue;
+        font-size: 1rem;
+        letter-spacing: 1px;
+        line-height: 1.2rem;
+        margin-bottom: 0;
+        padding: 0 12px;
+        margin-top: 0.5rem; /* added */
+      }
+
+      .member__title {
+        margin-bottom: 0.75rem;
+        font-size: 0.95rem;
+        font-weight: normal;
+        line-height: 1rem;
+        padding: 0 1.5rem;
+      }
+
+      .center-vert-content {
+        display: inline-block;
+        vertical-align: middle;
+        height: 100px;
+      }
+      .team-heading {
+        text-align: center;
+        font-size: 2.2rem;
+        margin-bottom: 2rem;
+        color: #070707;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrapper--team">
+      <div class="l-container">
+        <h2 class="team-heading">St. Joseph Province, Administration Team</h2>
+        <div class="team-grid">
+          <div class="team-grid__member hover">
+            <img src="./images/counselors/5_Subal.jpg" />
+            <div class="member__info">
+              <div class="center-vert-content">
+                <h3 class="member__name">Bro. Subal Lawrence Rozario, CSC</h3>
+                <p class="member__title">Provincial Superior</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="team-grid__member hover">
+            <img src="./images/counselors/16_Chandan B.jpg" alt="Randy Mosher" />
+            <div class="member__info">
+              <div class="center-vert-content">
+                <h3 class="member__name">Bro. Chandon Benedict Gomes, CSC</h3>
+                <p class="member__title">Vicar</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="team-grid__member hover">
+            <img src="./images/counselors/34_Ujjal.jpg" alt="BJ Pichman" />
+            <div class="member__info">
+              <div class="center-vert-content">
+                <h3 class="member__name">Bro. Ujjal Placid Pereira, CSC</h3>
+                <p class="member__title">Counselor</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="team-grid__member hover">
+            <img
+              src="./images/counselors/38_Sabuj.jpg"
+              alt="Jacqueline Armanetti"
+            />
+            <div class="member__info">
+              <div class="center-vert-content">
+                <h3 class="member__name">Bro. Sabuj Samuel Bala, CSC</h3>
+                <p class="member__title">Counselor</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="team-grid__member hover">
+            <img src="./images/counselors/71_Xavier.jpg" alt="Romy Seth" />
+            <div class="member__info">
+              <div class="center-vert-content">
+                <h3 class="member__name">Bro. Xavier Rozario, CSC</h3>
+                <p class="member__title">Counselor</p>
+              </div>
+            </div>
+          </div>
+          <div class="team-grid__member hover">
+            <img src="./images/counselors/43_Topon.jpg" alt="Romy Seth" />
+            <div class="member__info">
+              <div class="center-vert-content">
+                <h3 class="member__name">Bro. Topon Lawrence Serao, CSC</h3>
+                <p class="member__title">Counselor</p>
+              </div>
+            </div>
+          </div>
+          <div class="team-grid__member hover">
+            <img src="./images/counselors/61_Rocy.jpg" alt="Romy Seth" />
+            <div class="member__info">
+              <div class="center-vert-content">
+                <h3 class="member__name">Bro. Rocy Justin Costa, CSC</h3>
+                <p class="member__title">Counselor</p>
+              </div>
+            </div>
+          </div>
+          <div class="team-grid__member hover">
+            <img src="./images/counselors/72_Roktim.jpg" alt="Romy Seth" />
+            <div class="member__info">
+              <div class="center-vert-content">
+                <h3 class="member__name">Bro. Roktim L. Chiran, CSC</h3>
+                <p class="member__title">Counselor</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
