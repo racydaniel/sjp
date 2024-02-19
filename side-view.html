@@ -37,25 +37,25 @@
       }
 
       .container {
+        height: 100vh;
         display: flex;
         background-color: #fff;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        margin: 20px;
+        margin: 0px;
         /* border-radius: 8px; */
         overflow: hidden;
       }
 
       .sidebar {
+        height: 100vh;
         width: 200px;
-        height: auto;
         background-color: #328a8e;
         color: #ecf0f1;
         padding: 20px;
         box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
         overflow: hidden;
         position: relative;
-        width: 300px; /* Set the initial width of the sidebar */
-        z-index: 2; /* Set a higher z-index to bring the toggleBtn to the front */
+        z-index: 2;
         transition: width 0.3s ease;
       }
 
@@ -79,7 +79,7 @@
       }
 
       .sidebar a:hover {
-        background-color: #70d4b4;
+        background-color: #4db6ac;
         color: black;
       }
 
@@ -168,6 +168,7 @@
         }
 
         .sidebar {
+          height: 100vh;
           width: 100%;
           box-shadow: none;
           padding: 10px;
@@ -548,7 +549,7 @@
         var navLinks = document.getElementById("navLinks");
 
         if (sidebar.style.width === "35px") {
-          sidebar.style.width = "300px";
+          sidebar.style.width = "200px";
           navLinks.style.display = "block";
         } else {
           sidebar.style.width = "35px";

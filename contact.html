@@ -18,6 +18,46 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.css"></link>
 <link rel="stylesheet" href="https://sherpabrokerage.com/assets/css/side-menu.css">
 <style>
+  /* Ensure form adapts to screen width */
+.tab_content {
+    width: 100%;
+    max-width: 500px; /* Adjust for desired maximum width */
+    margin: 0 auto;
+}
+
+.form-group {
+    margin-bottom: 15px; /* Adjust spacing as needed */
+}
+
+/* Adjust font sizes for smaller screens */
+@media (max-width: 768px) {
+    .form-group {
+        margin-bottom: 10px;
+    }
+
+    input,
+    textarea {
+        font-size: 14px;
+    }
+
+    label {
+        font-size: 14px;
+    }
+}
+
+/* Align labels and inputs vertically on smaller screens */
+@media (max-width: 576px) {
+    .form-group {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    label {
+        margin-bottom: 5px; /* Adjust spacing as needed */
+    }
+}
+
     .right_conatct_social_icon{
      background: linear-gradient(to top right, #1325e8 -5%, #8f10b7 100%);
 }
@@ -134,14 +174,23 @@ button.contact_form_submit {
     overflow: hidden;
 }
 .col-lg-6 {
-  width: 50%; /* You can adjust the width as needed */
+  width: 600px;
+  height: 1000%;
   margin: 0 auto; /* This centers the div horizontally */
 }
 @media (max-width: 768px) {
   .col-lg-6 {
     width: 100%; /* Adjust the width for smaller screens */
   }
+  .get-quat-area .quat-form {
+    width: 100%; 
+  }
+  /* .section {
+    width: 100%;
+  } */
 }
+
+
 </style>
 
 </head>
