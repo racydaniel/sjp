@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Photo Gallery</title>
+    <style>
+      /* Use a subtle background color */
+      body {
+        background-color: #f0f0f0;
+      }
+
+      /* Use a different font for the title and the text */
+      h1 {
+        font-family: "Roboto", sans-serif;
+        font-size: 36px;
+        font-weight: bold;
+        text-align: center;
+        margin: 20px 0;
+      }
+
+      p {
+        font-family: "Lato", sans-serif;
+        font-size: 18px;
+        text-align: center;
+        margin: 10px 0;
+      }
+
+      .gallery {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        grid-gap: 20px;
+        padding: 20px;
+      }
+
+      .folder {
+        position: relative;
+        overflow: hidden;
+        /* Add some padding and margin */
+        padding: 10px;
+        margin: 10px;
+        /* Add a transition */
+        transition: transform 0.3s;
+      }
+
+      .folder img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        /* Add a filter */
+        filter: grayscale(50%);
+      }
+
+      .folder span {
+        position: absolute;
+        bottom: 10px;
+        right: 10px;
+        background-color: rgba(0, 0, 0, 0.5);
+        color: white;
+        padding: 5px;
+        border-radius: 5px;
+      }
+
+      .folder:hover {
+        /* Add a transform */
+        transform: scale(1.1);
+        /* Add a box-shadow */
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+      }
+
+      .folder:hover img {
+        /* Remove the filter */
+        filter: none;
+      }
+
+      .folder:hover span {
+        display: none;
+      }
+
+      .folder:hover::after {
+        content: attr(data-name) " (" attr(data-category) ")";
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        background-color: rgba(0, 0, 0, 0.5);
+        color: white;
+        padding: 5px;
+        border-radius: 5px;
+      }
+
+      .folder:hover::before {
+        content: attr(data-date);
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        background-color: rgba(0, 0, 0, 0.5);
+        color: white;
+        padding: 5px;
+        border-radius: 5px;
+      }
+
+      .folder {
+        cursor: pointer;
+      }
+
+      .modal {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.8);
+        /* Add an animation */
+        animation: fadeIn 0.5s;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+
+      .close {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        font-size: 36px;
+        color: white;
+        cursor: pointer;
+      }
+
+      .title {
+        font-family: "Roboto", sans-serif;
+        font-size: 36px;
+        font-weight: bold;
+        text-align: center;
+        color: white;
+        margin: 20px 0;
+      }
+
+      .container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+      }
+
+      .container img {
+        width: 200px;
+        height: 200px;
+        object-fit: cover;
+        margin: 10px;
+        /* Use a different shape */
+        border-radius: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Add a title and a text -->
+    <h1>Photo Gallery</h1>
+    <p>Explore the amazing photos from different categories and dates.</p>
+    <div class="gallery">
+      <div
+        class="folder"
+        data-name="Nature"
+        data-category="Landscape"
+        data-date="2024-01-01"
+      >
+        <img src="/images/2.jpg" alt="Nature 1" />
+        <span>10</span>
+      </div>
+      <div
+        class="folder"
+        data-name="Animals"
+        data-category="Wildlife"
+        data-date="2024-01-02"
+      >
+        <img src="/images/3.jpg" alt="Animals 1" />
+        <span>15</span>
+      </div>
+      <div
+        class="folder"
+        data-name="Cities"
+        data-category="Urban"
+        data-date="2024-01-03"
+      >
+        <img src="/images/4.jpg" alt="Cities 1" />
+        <span>20</span>
+      </div>
+      <!-- Add more folders as needed -->
+    </div>
+    <script>
+      // Get all the folders
+      var folders = document.querySelectorAll(".folder");
+
+      // Loop through the folders
+      for (var i = 0; i < folders.length; i++) {
+        // Add a click event listener to each folder
+        folders[i].addEventListener("click", function () {
+          // Get the name of the folder
+          var folderName = this.getAttribute("data-name");
+
+          // Create a modal window
+          var modal = document.createElement("div");
+          modal.className = "modal";
+
+          // Create a close button
+          var close = document.createElement("span");
+          close.className = "close";
+          close.innerHTML = "×";
+
+          // Create a title for the modal window
+          var title = document.createElement("h1");
+          title.className = "title";
+          title.innerHTML = folderName;
+
+          // Create a container for the images
+          var container = document.createElement("div");
+          container.className = "container";
+
+          // Create a XMLHttpRequest object
+          var xhr = new XMLHttpRequest();
+
+          // Open a GET request to the server with the folder name as a parameter
+          xhr.open("GET", "getImages.php?folder=" + folderName, true);
+
+          // Send the request
+          xhr.send();
+
+          // Handle the response
+          xhr.onreadystatechange = function () {
+            // Check if the request is completed and successful
+            if (this.readyState == 4 && this.status == 200) {
+              // Parse the response as a JSON array
+              var images = JSON.parse(this.responseText);
+
+              // Loop through the images
+              for (var j = 0; j < images.length; j++) {
+                // Create an image element
+                var image = document.createElement("img");
+
+                // Set the source attribute to the image URL
+                image.src = images[j];
+
+                // Append the image element to the container
+                container.appendChild(image);
+              }
+            }
+          };
+
+          // Append the close button, the title, and the container to the modal window
+          modal.appendChild(close);
+          modal.appendChild(title);
+          modal.appendChild(container);
+
+          // Append the modal window to the body
+          document.body.appendChild(modal);
+
+          // Add a click event listener to the close button
+          close.addEventListener("click", function () {
+            // Remove the modal window from the body
+            document.body.removeChild(modal);
+          });
+
+          // Add more buttons and functionality to the modal window as needed
+          // For example, view large, view medium, view small, order by name, etc.
+        });
+      }
+    </script>
+  </body>
+</html>
