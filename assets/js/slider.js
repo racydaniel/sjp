@@ -25,11 +25,15 @@ init();
 
 // Create navigation dots
 function createNavigationDots() {
+  // Clear existing dots
+  navigationDots.innerHTML = "";
+
   for (let i = 0; i < numberOfImages; i++) {
     const dot = document.createElement("div");
     dot.classList.add("single-dot");
     navigationDots.appendChild(dot);
 
+    // Add click event listener to each dot
     dot.addEventListener("click", () => {
       goToSlide(i);
       clearInterval(slideInterval);
@@ -37,8 +41,10 @@ function createNavigationDots() {
     });
   }
 
+  // Set the first dot as active initially
   navigationDots.children[0].classList.add("active");
 }
+
 
 // Next Button
 nextBtn.addEventListener("click", () => {
