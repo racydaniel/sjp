@@ -95,6 +95,39 @@ h1 {
 .next-btn,
 .prev-btn {
     top: 50%;
+    transform: translateY(-50%); /* Center the buttons vertically */
+    margin: 0 1em;  /* Add some margin for spacing */
+    padding: 0.5em 1em;  /* Increase button size slightly */
+    font-size: 1.5rem;  /* Adjust font size for better visibility */
+    color: var(--white);
+    /* background-color: var(--primary);  */
+    position: absolute;
+    cursor: pointer;
+    z-index: 100;
+}
+.prev-btn i,
+.next-btn i {
+  font-size: 2.5rem; /* Adjust as needed */
+}
+
+
+.next-btn:hover,
+.prev-btn:hover {
+   opacity: 0.8;  /* Adjust opacity on hover */
+}
+
+.prev-btn {
+   left: 0;
+}
+
+.next-btn {
+   right: 0;
+}
+
+/* 
+.next-btn,
+.prev-btn {
+    top: 50%;
     margin: 0 .25em;
     padding: .2em .3em;
     font-size: 2.22rem;
@@ -118,7 +151,7 @@ h1 {
 
 .next-btn {
     right: 0;
-}
+} */
 
 /* Navigation Dots */
 .navigation-dots {
