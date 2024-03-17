@@ -25,17 +25,7 @@
            -o-transition-duration: .2s;
        }
 
-       /* ul {
-           margin: 0;
-           padding: 0;
-           list-style: none;
-       } */
-
-       /* img {
-           max-width: 100%;
-           height: auto;
-       } */
-
+    
        section {
            padding: 60px 0;
            /* min-height: 100vh;*/
@@ -156,46 +146,46 @@
                padding: 0 30px;
            }
 
-                   .sec-title {
-                       text-align: center;
-                       margin-bottom: 30px;
-                       /* Adjust as needed for spacing */
-                   }
-        
-                   .sec-title h2 {
-                       display: block;
-                       font-size: 36px;
-                       /* Adjust as needed for font size */
-                       line-height: 1.4;
-                       color: #222222;
-                       /* Adjust as needed for color */
-                       font-weight: 700;
-                       /* Bold */
-                       margin-top: 10px;
-                       /* Adjust as needed for spacing */
-                   }
-        
-                   /* Optional: Add some additional styling for a decorative underline */
-                   .sec-title h2:before {
-                       content: '';
-                       display: block;
-                       width: 50px;
-                       /* Adjust as needed for the underline width */
-                       height: 3px;
-                       /* Adjust as needed for the underline height */
-                       background-color: #00aeef;
-                       /* Adjust as needed for underline color */
-                       margin: 10px auto;
-                       /* Adjust as needed for spacing */
-                   }
-        
-                   @media (max-width: 767px) {
-                       .sec-title h2 {
-                           margin-top: 0;
-                           /* Adjust to move the h2 to the top in mobile view */
-                       }
-                   }
-                 
+            .sec-title {
+                text-align: center;
+                margin-bottom: 30px;
+                /* Adjust as needed for spacing */
+            }
+
+            .sec-title h2 {
+                display: block;
+                font-size: 36px;
+                /* Adjust as needed for font size */
+                line-height: 1.4;
+                color: #222222;
+                /* Adjust as needed for color */
+                font-weight: 700;
+                /* Bold */
+                margin-top: 10px;
+                /* Adjust as needed for spacing */
+            }
+
+            /* Optional: Add some additional styling for a decorative underline */
+            .sec-title h2:before {
+                content: '';
+                display: block;
+                width: 50px;
+                /* Adjust as needed for the underline width */
+                height: 3px;
+                /* Adjust as needed for the underline height */
+                background-color: #00aeef;
+                /* Adjust as needed for underline color */
+                margin: 10px auto;
+                /* Adjust as needed for spacing */
+            }
+
+            @media (max-width: 767px) {
+                .sec-title h2 {
+                    margin-top: 0;
+                    /* Adjust to move the h2 to the top in mobile view */
+                }
+            }
+            
     
               
     

@@ -258,5 +258,18 @@
     transform: translateY(-5px);
 }
 
+.holy-ones-section .sec-title h2 {
+    color: white;
+}
+.holy-ones-section .sec-title h2:before {
+  content: '';
+  display: block;
+  width: 50px; /* Adjust as needed for the underline width */
+  height: 3px; /* Adjust as needed for the underline height */
+  background-color: goldenrod; /* Change to the desired golden color */
+  margin: 10px auto; /* Adjust as needed for spacing */
+}
+
+
 
 

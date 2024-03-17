@@ -409,9 +409,10 @@
 
     <section id="holy-ones" class="holy-ones-section scroll-reveal">
       <div class="holy-ones-container card scroll-reveal">
-        <h2 id="holy-ones-title" class="holy-ones-section-title">
-          Our Holy Ones
-        </h2>
+        
+        <div id="holy-ones-title" class="sec-title">
+          <h2>Our Holy Ones</h2>
+        </div>
         <div class="holy-ones-container">
           <div class="holy-ones-card blessed-moreau">
             <img
@@ -483,7 +484,9 @@
     <!--=============== OUR MINISTRIES ===============-->
 
     <section id="ministry" class="ministry-section scroll-reveal">
-      <h1 id="ministry-title" class="ministry-title">Our Ministries</h1>
+      <div id="ministry-title" class="sec-title">
+          <h2>Our Ministries</h2>
+        </div>
       <div class="ministry-container scroll-reveal">
         <div class="mininstry-item">
           <i class="material-icons">school</i>
@@ -540,8 +543,10 @@
     <!--=============== NEWS ===============-->
 
     <section id="news-section" class="news-section scroll-reveal">
-    <h1>Latest News</h1>
-  <div class="card-container">
+     <div id="news-title" class="sec-title">
+          <h2>Latest News</h2>
+        </div>
+  <div class="card-container scroll-reveal">
     <div class="news-card">
       <img src="/images/dibosh-grp.jpg" alt="News Image 1" />
       <h3>Final Profession of 8 Brothers</h3>
@@ -577,11 +582,16 @@
     </div>
   </div>
   </section>
+
+
     <!--=============== Quotation section ===============-->
-    <section class="quotation-section">
-      <h1 id="quotation-title" class="quotation-title">Words of Wisdom</h1>
+    <section id="quotation-section" class="quotation-section scroll-reveal">
+      <div id="quotation-title" class="sec-title">
+          <h2>Words of Wisdom</h2>
+        </div>
+     
       <div class="quotation-card">
-        <div class="quotation-content">
+        <div class="quotation-content scroll-reveal">
           <blockquote class="quotation-text">
             "How we educate the mind will change with the times; how we
             cultivate the heart is and will remain timeless."
@@ -620,10 +630,12 @@
     </section>
 
     <!--=============== Facts & Figures ===============-->
-    <section class="facts-section">
-    <h1 class="section-title">Facts and Figures</h1>
-    <div class="fact-container">
-        <div class="fact">
+    <section id="facts-section"  class="facts-section scroll-reveal">
+    <div id="facts-title" class="sec-title">
+          <h2>Facts and Figures</h2>
+        </div>
+    <div class="fact-container scroll-reveal">
+        <div class="fact scroll-reveal">
             <h2>Brothers</h2>
             <div class="counter" data-target="130">0</div>
         </div>
@@ -651,10 +663,12 @@
 </section>
 
     <!--=============== FAQ ===============-->
-    <section>
-      <h1 id="faq-title" class="faq-title">FAQ'S</h1>
+    <section id="faq-section" class="faq-section scroll-reveal">
+      <div id="faq-title" class="sec-title">
+          <h2>FAQ'S</h2>
+      </div>
       <div class="accordion">
-        <div class="accordion-item">
+        <div class="accordion-item scroll-reveal">
           <div class="accordion-item-header">
             What is the Congregation of Holy Cross?
           </div>
@@ -970,6 +984,70 @@
           mobile: true,
         });
       });
+
+      document.addEventListener("DOMContentLoaded", function () {
+        const scrollReveal = ScrollReveal();
+
+        // Configure the animation for ministry items
+        scrollReveal.reveal(".news-card", {
+          delay: 300,
+          distance: "80px",
+          duration: 3000,
+          easing: "cubic-bezier(0.5, 2, 0, 1)",
+          origin: "left",
+          reset: true,
+          mobile: true,
+        });
+      });
+
+      
+      document.addEventListener("DOMContentLoaded", function () {
+        const scrollReveal = ScrollReveal();
+
+        // Configure the animation for ministry items
+        scrollReveal.reveal(".quotation-card", {
+          delay: 300,
+          distance: "80px",
+          duration: 3000,
+          easing: "cubic-bezier(0.5, 2, 0, 1)",
+          origin: "left",
+          reset: true,
+          mobile: true,
+        });
+      });
+
+
+      document.addEventListener("DOMContentLoaded", function () {
+        const scrollReveal = ScrollReveal();
+
+        // Configure the animation for ministry items
+        scrollReveal.reveal(".fact", {
+          delay: 300,
+          distance: "80px",
+          duration: 3000,
+          easing: "cubic-bezier(0.5, 2, 0, 1)",
+          origin: "left",
+          reset: true,
+          mobile: true,
+        });
+      }); 
+
+      document.addEventListener("DOMContentLoaded", function () {
+        const scrollReveal = ScrollReveal();
+
+        // Configure the animation for ministry items
+        scrollReveal.reveal(".accordion-item", {
+          delay: 300,
+          distance: "80px",
+          duration: 3000,
+          easing: "cubic-bezier(0.5, 2, 0, 1)",
+          origin: "left",
+          reset: true,
+          mobile: true,
+        });
+      });
+
+      
     </script>
     <script>
       document.addEventListener("DOMContentLoaded", function () {
@@ -1007,7 +1085,41 @@
           reset: true,
           mobile: true,
         });
+
+        // Configure the animation for Quotation section title
+        scrollReveal.reveal("#quotation-title", {
+          delay: 200,
+          distance: "100px",
+          duration: 800,
+          easing: "cubic-bezier(0.5, 0, 0, 1)",
+          origin: "left",
+          reset: true,
+          mobile: true,
+        });
+
+        // Configure the animation for facts section title
+        scrollReveal.reveal("#facts-title", {
+          delay: 200,
+          distance: "100px",
+          duration: 800,
+          easing: "cubic-bezier(0.5, 0, 0, 1)",
+          origin: "left",
+          reset: true,
+          mobile: true,
+        });
+        // Configure the animation for faq section title
+        scrollReveal.reveal("#faq-title", {
+          delay: 200,
+          distance: "100px",
+          duration: 800,
+          easing: "cubic-bezier(0.5, 0, 0, 1)",
+          origin: "left",
+          reset: true,
+          mobile: true,
+        });
       });
+
+      
     </script>
     <!--=============== FAQ scripts ===============-->
     <script>
