@@ -35,13 +35,16 @@ main {
     justify-content: center;
     flex-direction: column;
     align-items: center;
+    /* background-color: rgb(165, 171, 192); */
 }
+
 
 h1 {
     margin: 0;
     font-weight: 800;
     text-transform: uppercase;
     font-size: 10vw;
+    /* color: white; */
 }
 
 /* p {
@@ -79,11 +82,13 @@ h1 {
     position: relative;
 }
 
+
 .slide-image {
     height: 100%;
     width: 100%;
     position: absolute;
 }
+
 
 .slide-image img {
     width: 100%;
@@ -91,6 +96,7 @@ h1 {
     object-fit: cover;
     
 }
+
 
 .next-btn,
 .prev-btn {
